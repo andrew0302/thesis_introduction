@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Advancing Perspectivist Ground Truthing with Social Science – Thesis Intro</title>
+<title>Advancing Perspectivist Ground Truthing with Social Science – Thesis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ div.csl-indent {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Thesis Intro</span>
+    <span class="navbar-title">Thesis</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -145,8 +145,8 @@ div.csl-indent {
 </header>
 
 
-<section id="ml-uses-human-annotations" class="level3">
-<h3 class="anchored" data-anchor-id="ml-uses-human-annotations">ML uses human annotations</h3>
+<section id="ml-uses-human-annotations-very-often" class="level3">
+<h3 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h3>
 <p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span></p>
 <ul>
 <li>200 randomly sampled ML papers from 3 domains:
@@ -159,6 +159,32 @@ div.csl-indent {
 <li>Out of 103 human labels, 58 (56.31%) used only external labels</li>
 </ul>
 <p>i.e.&nbsp;ML re-uses external labels, and inadequately reports ‘ground truth’</p>
+<p>without details of ground truth, we cannot know what the resulting model represents [perhaps cat image parable here?]</p>
+</section>
+<section id="human-annotations-arent-always-accurate" class="level3">
+<h3 class="anchored" data-anchor-id="human-annotations-arent-always-accurate">Human annotations aren’t always accurate</h3>
+<p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> review errors and biases in human judgements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li>over/under prediction: confidence score is higher/lower than accuracy</li>
+<li>over/under extremity: confidence is more extreme at ends</li>
+</ul>
+<p>also reviews possible reasons:</p>
+<ul>
+<li>optimistic overconfidence</li>
+<li>confirmation bias</li>
+<li>case-based judgment</li>
+<li>ecological probability</li>
+<li>error model (psychometric model)</li>
+</ul>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span></p>
+<ul>
+<li>annotation collection requires design thinking
+<ul>
+<li>Task Structure: specific wording and response options, including debates over the inclusion of “I don’t Know” option</li>
+<li>Order Effects: specific judgements are affected by previous perceptions</li>
+<li>Annotator Effects: backgrounds, opinions, experiences of respondents affect responses</li>
+</ul></li>
+</ul>
 </section>
 <section id="social-and-computational-sciences-have-different-focci" class="level3">
 <h3 class="anchored" data-anchor-id="social-and-computational-sciences-have-different-focci">social and computational sciences have different focci</h3>
@@ -172,7 +198,7 @@ div.csl-indent {
 <li>learning procedure f(x)</li>
 </ul>
 <p><img src="images/Liem_2018_figure_1.png" class="img-fluid"> Fig. 1: <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span></p>
-<p>leads to high yet unrealized interdisciplinary potential<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>thus, positive yet unrealized interdisciplinary potential<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, but also strong negative potential when disciplines collaborate i.e.&nbsp;the “worst of both worlds” <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span></p>
 <section id="a-tale-of-two-studies-the-case-of-personnel-selection" class="level4">
 <h4 class="anchored" data-anchor-id="a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</h4>
 <p><span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
@@ -196,8 +222,17 @@ div.csl-indent {
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-beck2022improving" class="csl-entry" role="listitem">
+Beck, J., Eckman, S., Chew, R., &amp; Kreuter, F. (2022). Improving labeling through social science insights: Results and research agenda. <em>International Conference on Human-Computer Interaction</em>, 245–261.
+</div>
 <div id="ref-geiger2021garbage" class="csl-entry" role="listitem">
 Geiger, R. S., Cope, D., Ip, J., Lotosh, M., Shah, A., Weng, J., &amp; Tang, R. (2021). " garbage in, garbage out" revisited: What do machine learning application papers report about human-labeled training data? <em>arXiv Preprint arXiv:2107.02278</em>.
+</div>
+<div id="ref-griffin2004perspectives" class="csl-entry" role="listitem">
+Griffin, D., &amp; Brenner, L. (2004). Perspectives on probability judgment calibration. <em>Blackwell Handbook of Judgment and Decision Making</em>, <em>199</em>, 158–177.
+</div>
+<div id="ref-hullman2022worst" class="csl-entry" role="listitem">
+Hullman, J., Kapoor, S., Nanayakkara, P., Gelman, A., &amp; Narayanan, A. (2022). The worst of both worlds: A comparative analysis of errors in learning from data in psychology and machine learning. <em>Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society</em>, 335–348.
 </div>
 <div id="ref-koutsoumpis2024beyond" class="csl-entry" role="listitem">
 Koutsoumpis, A., Ghassemi, S., Oostrom, J. K., Holtrop, D., Breda, W. van, Zhang, T., &amp; Vries, R. E. de. (2024). Beyond traditional interviews: Psychometric analysis of asynchronous video interviews for personality and interview performance evaluation using machine learning. <em>Computers in Human Behavior</em>, <em>154</em>, 108128.
@@ -211,7 +246,8 @@ Ponce-López, V., Chen, B., Oliu, M., Corneanu, C., Clapés, A., Guyon, I., Bar�
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>case study of this thesis works towards path (b) in <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span> shown in: <img src="images/Liem_2018_figure_2.png" class="img-fluid"><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> note that much of this work was about people guessing knowledge from an almanac, and then guessing how accurate they were<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>case study of this thesis works towards path (b) in <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span> shown in: <img src="images/Liem_2018_figure_2.png" class="img-fluid"><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

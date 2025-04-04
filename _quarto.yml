@@ -3,7 +3,7 @@ project:
   output-dir: docs  # needed for GitHub Pages
 
 website:
-  title: "Thesis Intro"
+  title: "Thesis"
   navbar:
     left:
       - href: index.qmd

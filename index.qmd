@@ -4,7 +4,7 @@ title: "Advancing Perspectivist Ground Truthing with Social Science "
 
 
 
-### ML uses human annotations
+### ML uses human annotations very often
 
 @geiger2021garbage 
 
@@ -18,6 +18,33 @@ title: "Advancing Perspectivist Ground Truthing with Social Science "
 
 i.e. ML re-uses external labels, and inadequately reports 'ground truth'
 
+without details of ground truth, we cannot know what the resulting model represents
+[perhaps cat image parable here?]
+
+### Human annotations aren't always accurate
+
+@griffin2004perspectives review errors and biases in human judgements[^2]
+
+[^2]: @griffin2004perspectives note that much of this work was about people guessing knowledge from an almanac, and then guessing how accurate they were
+
+* over/under prediction: confidence score is higher/lower than accuracy
+* over/under extremity: confidence is more extreme at ends
+
+also reviews possible reasons:
+
+* optimistic overconfidence
+* confirmation bias
+* case-based judgment
+* ecological probability
+* error model (psychometric model)
+
+@beck2022improving 
+
+* annotation collection requires design thinking
+  * Task Structure: specific wording and response options, including debates over the inclusion of "I don't Know" option
+  * Order Effects: specific judgements are affected by previous perceptions
+  * Annotator Effects: backgrounds, opinions, experiences of respondents affect responses
+  
 
 
 ### social and computational sciences have different focci
@@ -34,10 +61,12 @@ computational sciences:
 ![](images/Liem_2018_figure_1.png)
 Fig. 1: @liem2018psychology
 
-leads to high yet unrealized interdisciplinary potential[^1]
+thus, positive yet unrealized interdisciplinary potential[^1], but also strong negative potential when disciplines collaborate i.e. the "worst of both worlds" @hullman2022worst 
 
 [^1]: case study of this thesis works towards path (b) in @liem2018psychology shown in:
 ![](images/Liem_2018_figure_2.png)
+
+
 
 #### A tale of two studies: the case of personnel selection
 

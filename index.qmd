@@ -4,4 +4,54 @@ title: "Advancing Perspectivist Ground Truthing with Social Science "
 
 
 
-@demetriou2024towards
+### ML uses human annotations
+
+@geiger2021garbage 
+
+* 200 randomly sampled ML papers from 3 domains:
+  * Social Sciences & Humanities
+  * Life & Biomedical Sciences
+  * Physical & Environmental Sciences
+
+* Out of 141 classification tasks, 103 (73.05%) used human labels
+* Out of 103 human labels, 58 (56.31%) used only external labels
+
+i.e. ML re-uses external labels, and inadequately reports 'ground truth'
+
+
+
+### social and computational sciences have different focci
+
+social sciences:
+
+* interpretable meaning of x and y
+* design is informed by theory
+
+computational sciences:
+
+* learning procedure f(x)
+
+![](images/Liem_2018_figure_1.png)
+Fig. 1: @liem2018psychology
+
+leads to high yet unrealized interdisciplinary potential[^1]
+
+[^1]: case study of this thesis works towards path (b) in @liem2018psychology shown in:
+![](images/Liem_2018_figure_2.png)
+
+#### A tale of two studies: the case of personnel selection
+
+@ponce2016chalearn 
+
+* efficient way to gather media and annotation data
+* BUT no validation of instrument, or ecologically valid media data
+
+![](images/Ponce_Lopez_2016_figure_2.png)
+Figure 2: @ponce2016chalearn 
+
+Compared to @koutsoumpis2024beyond:
+
+* ecological validity: media data was mock asynchronous video interviews
+* ecological validity: interview questions designed to activate personality facets
+* personality instruments: validated HEXACO scale
+* perspectives: self & observer ratings

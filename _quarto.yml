@@ -1,0 +1,13 @@
+project:
+  type: website
+  output-dir: docs  # needed for GitHub Pages
+
+website:
+  title: "Thesis Intro"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Introduction
+        
+csl: apa.csl
+bibliography: references.bib

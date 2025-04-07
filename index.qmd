@@ -2,7 +2,54 @@
 title: "Advancing Perspectivist Ground Truthing with Social Science "
 ---
 
+## Poor reproducibility/replicability in ML research
 
+@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to reference datasets.
+
+They note that researchers often re-use datasets as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
+
+* use of non-representative samples
+* measurement bias
+* underspecification of the population captured in data
+* transformation of data to optimize for 'accuracy'
+
+With caveats, they note that there are lessons to be learned from social science, and their replication crisis.  
+
+### Social and computational sciences have different focci
+
+social sciences:
+
+* interpretable meaning of x and y
+* design is informed by theory
+
+computational sciences:
+
+* learning procedure f(x)
+
+![](images/Liem_2018_figure_1.png)
+Fig. 1: @liem2018psychology
+
+thus, positive yet unrealized interdisciplinary potentia, but also strong negative potential when disciplines ignore fundamental scientific issues in their research pipelines i.e. the "worst of both worlds" @hullman2022worst 
+
+
+
+
+#### A tale of two studies: the case of personnel selection
+
+@ponce2016chalearn 
+
+* efficient way to gather media and annotation data
+* BUT no validation of instrument, or ecologically valid media data
+
+![](images/Ponce_Lopez_2016_figure_2.png)
+Figure 2: @ponce2016chalearn 
+
+Compared to @koutsoumpis2024beyond:
+
+* ecological validity: media data was mock asynchronous video interviews
+* ecological validity: interview questions designed to activate personality facets
+* personality instruments: validated HEXACO scale
+* perspectives: self & observer ratings
 
 ### ML uses human annotations very often
 
@@ -38,49 +85,49 @@ also reviews possible reasons:
 * ecological probability
 * error model (psychometric model)
 
+### ML often ignores perspectives of annotators
+
+[crowd truth; perspectivist approach here]
+
+
+#### Issues with sampling 
+
+Solutions to sampling problems can come from sampling theory: @groves2009survey
+
+considerations:
+
+* sampling frame: the elements in from populations that you have access to
+* ineligible units: elements in the sampling frame that are not your target
+* undercoverage: elements from target population that are not in the frame
+
+solutions:
+
+* stratified sampling
+
+#### Issues with instruments
+
 @beck2022improving 
 
 * annotation collection requires design thinking
   * Task Structure: specific wording and response options, including debates over the inclusion of "I don't Know" option
   * Order Effects: specific judgements are affected by previous perceptions
   * Annotator Effects: backgrounds, opinions, experiences of respondents affect responses
-  
 
+[another ref that describes the target as a latent variable]
 
-### social and computational sciences have different focci
+## Present Work
 
-social sciences:
+We incorporate these considerations in the design of our study, and attempt to further the field in the following ways:
 
-* interpretable meaning of x and y
-* design is informed by theory
+* we attempt representative sampling of both media and respondents
+* we aim to estimate 10-dimensional psychological construct
+* we select media that is ambiguous (i.e. that will result in subjectivity in the ratings) as well as media that we expect not to be ambiguous for comparison
+* we estimate a-priori the number of ratings necessary rather than assuming
+* we take into account perspectives
 
-computational sciences:
-
-* learning procedure f(x)
-
-![](images/Liem_2018_figure_1.png)
-Fig. 1: @liem2018psychology
-
-thus, positive yet unrealized interdisciplinary potential[^1], but also strong negative potential when disciplines collaborate i.e. the "worst of both worlds" @hullman2022worst 
-
-[^1]: case study of this thesis works towards path (b) in @liem2018psychology shown in:
+case study of this thesis works towards path (b) in @liem2018psychology shown in:
 ![](images/Liem_2018_figure_2.png)
 
 
+## References
 
-#### A tale of two studies: the case of personnel selection
-
-@ponce2016chalearn 
-
-* efficient way to gather media and annotation data
-* BUT no validation of instrument, or ecologically valid media data
-
-![](images/Ponce_Lopez_2016_figure_2.png)
-Figure 2: @ponce2016chalearn 
-
-Compared to @koutsoumpis2024beyond:
-
-* ecological validity: media data was mock asynchronous video interviews
-* ecological validity: interview questions designed to activate personality facets
-* personality instruments: validated HEXACO scale
-* perspectives: self & observer ratings

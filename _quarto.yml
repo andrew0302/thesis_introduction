@@ -2,6 +2,15 @@ project:
   type: website
   output-dir: docs  # needed for GitHub Pages
 
+format:
+  html:
+    toc: true
+    number-sections: false
+    theme: cosmo  # or whichever theme you like
+  docx:
+    toc: true
+    number-sections: false
+
 website:
   title: "Thesis"
   navbar:

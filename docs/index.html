@@ -127,15 +127,24 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#poor-reproducibilityreplicability-in-ml-research" id="toc-poor-reproducibilityreplicability-in-ml-research" class="nav-link active" data-scroll-target="#poor-reproducibilityreplicability-in-ml-research">Poor reproducibility/replicability in ML research</a>
+  <li><a href="#mlai-relies-on-reference-data" id="toc-mlai-relies-on-reference-data" class="nav-link active" data-scroll-target="#mlai-relies-on-reference-data">ML/AI relies on reference data</a>
   <ul class="collapse">
-  <li><a href="#social-and-computational-sciences-have-different-focci" id="toc-social-and-computational-sciences-have-different-focci" class="nav-link" data-scroll-target="#social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</a></li>
   <li><a href="#ml-uses-human-annotations-very-often" id="toc-ml-uses-human-annotations-very-often" class="nav-link" data-scroll-target="#ml-uses-human-annotations-very-often">ML uses human annotations very often</a></li>
   <li><a href="#human-annotations-arent-always-accurate" id="toc-human-annotations-arent-always-accurate" class="nav-link" data-scroll-target="#human-annotations-arent-always-accurate">Human annotations aren’t always accurate</a></li>
-  <li><a href="#ml-often-ignores-perspectives-of-annotators" id="toc-ml-often-ignores-perspectives-of-annotators" class="nav-link" data-scroll-target="#ml-often-ignores-perspectives-of-annotators">ML often ignores perspectives of annotators</a></li>
+  <li><a href="#sampling-and-measurement-biases-in-ml-research" id="toc-sampling-and-measurement-biases-in-ml-research" class="nav-link" data-scroll-target="#sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</a></li>
+  <li><a href="#ml-ignores-perspectives-of-annotators" id="toc-ml-ignores-perspectives-of-annotators" class="nav-link" data-scroll-target="#ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</a></li>
   </ul></li>
-  <li><a href="#present-work" id="toc-present-work" class="nav-link" data-scroll-target="#present-work">Present Work</a></li>
+  <li><a href="#tools-from-social-science-can-help" id="toc-tools-from-social-science-can-help" class="nav-link" data-scroll-target="#tools-from-social-science-can-help">Tools from Social Science can help</a>
+  <ul class="collapse">
+  <li><a href="#social-and-computational-sciences-have-different-focci" id="toc-social-and-computational-sciences-have-different-focci" class="nav-link" data-scroll-target="#social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</a></li>
+  <li><a href="#issues-with-sampling" id="toc-issues-with-sampling" class="nav-link" data-scroll-target="#issues-with-sampling">Issues with sampling</a></li>
+  <li><a href="#issues-with-instruments" id="toc-issues-with-instruments" class="nav-link" data-scroll-target="#issues-with-instruments">Issues with instruments</a></li>
+  <li><a href="#a-tale-of-two-studies-the-case-of-personnel-selection" id="toc-a-tale-of-two-studies-the-case-of-personnel-selection" class="nav-link" data-scroll-target="#a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</a></li>
+  </ul></li>
+  <li><a href="#present-work" id="toc-present-work" class="nav-link" data-scroll-target="#present-work">Present Work</a>
+  <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
@@ -161,49 +170,15 @@ div.csl-indent {
 </header>
 
 
-<section id="poor-reproducibilityreplicability-in-ml-research" class="level2">
-<h2 class="anchored" data-anchor-id="poor-reproducibilityreplicability-in-ml-research">Poor reproducibility/replicability in ML research</h2>
-<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects <span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span>.</p>
-<p>With regards to reference data:</p>
+<section id="mlai-relies-on-reference-data" class="level1">
+<h1>ML/AI relies on reference data</h1>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
 <ul>
-<li>representation bias / non-representative samples</li>
-<li>measurement bias / unvalidated measurement instruments</li>
-<li>underspecification of portions of input space in training data</li>
-<li>transformation of data to optimize for ‘accuracy’</li>
-<li>lack of or poor dataset documentation</li>
+<li>In order to evaluate ML / AI systems, we compare the output of these systems to reference data.</li>
+<li>One method for creating reference data is the collection of human annotations.</li>
+<li>This method typically assumes that, for every piece of content being annotated, there is a single canonical truth</li>
+<li>quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations</li>
 </ul>
-<p>In other words, optimizing for predictive accuracy using very large datasets does not ‘absolve’ researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments.</p>
-<section id="social-and-computational-sciences-have-different-focci" class="level3">
-<h3 class="anchored" data-anchor-id="social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</h3>
-<p>social sciences:</p>
-<ul>
-<li>interpretable meaning of x and y</li>
-<li>design is informed by theory</li>
-</ul>
-<p>computational sciences:</p>
-<ul>
-<li>learning procedure f(x)</li>
-</ul>
-<p><img src="images/Liem_2018_figure_1.png" class="img-fluid"> Fig. 1: <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span></p>
-<p>Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty <span class="citation" data-cites="birhane2022values">Birhane et al. (<a href="#ref-birhane2022values" role="doc-biblioref">2022</a>)</span>. Unlike the social sciences (e.g.&nbsp;psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span>.</p>
-<section id="a-tale-of-two-studies-the-case-of-personnel-selection" class="level4">
-<h4 class="anchored" data-anchor-id="a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</h4>
-<p><span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
-<ul>
-<li>efficient way to gather media and annotation data</li>
-<li>BUT no validation of instrument, or ecologically valid media data</li>
-<li>distribution of training /eval data don’t come from the target distribution</li>
-</ul>
-<p><img src="images/Ponce_Lopez_2016_figure_2.png" class="img-fluid"> Figure 2: <span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
-<p>Compared to <span class="citation" data-cites="koutsoumpis2024beyond">Koutsoumpis et al. (<a href="#ref-koutsoumpis2024beyond" role="doc-biblioref">2024</a>)</span>:</p>
-<ul>
-<li>ecological validity: media data was mock asynchronous video interviews</li>
-<li>ecological validity: interview questions designed to activate personality facets</li>
-<li>personality instruments: validated HEXACO scale</li>
-<li>perspectives: self &amp; observer ratings</li>
-</ul>
-</section>
-</section>
 <section id="ml-uses-human-annotations-very-often" class="level3">
 <h3 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h3>
 <p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span></p>
@@ -236,11 +211,69 @@ div.csl-indent {
 <li>error model (psychometric model)</li>
 </ul>
 </section>
-<section id="ml-often-ignores-perspectives-of-annotators" class="level3">
-<h3 class="anchored" data-anchor-id="ml-often-ignores-perspectives-of-annotators">ML often ignores perspectives of annotators</h3>
-<p>[crowd truth; perspectivist approach here]</p>
-<section id="issues-with-sampling" class="level4">
-<h4 class="anchored" data-anchor-id="issues-with-sampling">Issues with sampling</h4>
+<section id="sampling-and-measurement-biases-in-ml-research" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</h3>
+<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects <span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span>.</p>
+<p>With regards to reference data:</p>
+<ul>
+<li>representation bias / non-representative samples</li>
+<li>measurement bias / unvalidated measurement instruments</li>
+<li>underspecification of portions of input space in training data</li>
+<li>transformation of data to optimize for ‘accuracy’</li>
+<li>lack of or poor dataset documentation</li>
+</ul>
+<p>In other words, optimizing for predictive accuracy using very large datasets does not ‘absolve’ researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments.</p>
+</section>
+<section id="ml-ignores-perspectives-of-annotators" class="level3">
+<h3 class="anchored" data-anchor-id="ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</h3>
+<p>Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn’t hold.</p>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
+<p>7 ‘myths’ of human annotation:</p>
+<ul>
+<li>there is one truth</li>
+<li>disagreement is bad</li>
+<li>detailed guidelines help</li>
+<li>experts are better</li>
+<li>one annotator is enough</li>
+<li>all items are created equal</li>
+<li>once done, forever valid</li>
+</ul>
+<p>For myths 1 and 2:</p>
+<ul>
+<li>list examples from NLP where the disagreement from annotators is sensible</li>
+<li>they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false.</li>
+</ul>
+<p>While it can be indicative of annotation quality, e.g.&nbsp;the annotator is annotating incorrectly, in other cases disagreement indicates that the media being rated is ambiguous.</p>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion</p>
+<ul>
+<li>show work on an intuitively perspective-based use-case: hate speech</li>
+</ul>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span> operationalize ‘crowd truth’ with an illustration where the ‘gold standard’ is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.</p>
+<ul>
+<li>i.e.&nbsp;the label isn’t represented as ‘present’ or ‘not present’, but as a probablility</li>
+<li>thus the ‘crowd truth’ attempts to capture the ‘range of reasonable interpretations’</li>
+</ul>
+</section>
+</section>
+<section id="tools-from-social-science-can-help" class="level1">
+<h1>Tools from Social Science can help</h1>
+<p>Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty are the primary values in ML work <span class="citation" data-cites="birhane2022values">Birhane et al. (<a href="#ref-birhane2022values" role="doc-biblioref">2022</a>)</span>.</p>
+<p>Unlike the social sciences (e.g.&nbsp;psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span>. This is problematic as this kind of optimization doesn’t resemble real world deployment.</p>
+<section id="social-and-computational-sciences-have-different-focci" class="level3">
+<h3 class="anchored" data-anchor-id="social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</h3>
+<p>social sciences:</p>
+<ul>
+<li>interpretable meaning of x and y</li>
+<li>design is informed by theory</li>
+</ul>
+<p>computational sciences:</p>
+<ul>
+<li>learning procedure f(x)</li>
+</ul>
+<p><img src="images/Liem_2018_figure_1.png" class="img-fluid"> Fig. 1: <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span></p>
+</section>
+<section id="issues-with-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="issues-with-sampling">Issues with sampling</h3>
 <p>Solutions to sampling problems can come from sampling theory: <span class="citation" data-cites="groves2009survey">Groves et al. (<a href="#ref-groves2009survey" role="doc-biblioref">2009</a>)</span></p>
 <p>considerations:</p>
 <ul>
@@ -253,8 +286,8 @@ div.csl-indent {
 <li>stratified sampling</li>
 </ul>
 </section>
-<section id="issues-with-instruments" class="level4">
-<h4 class="anchored" data-anchor-id="issues-with-instruments">Issues with instruments</h4>
+<section id="issues-with-instruments" class="level3">
+<h3 class="anchored" data-anchor-id="issues-with-instruments">Issues with instruments</h3>
 <p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span></p>
 <ul>
 <li>annotation collection requires design thinking
@@ -266,10 +299,26 @@ div.csl-indent {
 </ul>
 <p>[another ref that describes the target as a latent variable]</p>
 </section>
+<section id="a-tale-of-two-studies-the-case-of-personnel-selection" class="level3">
+<h3 class="anchored" data-anchor-id="a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</h3>
+<p><span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
+<ul>
+<li>efficient way to gather media and annotation data</li>
+<li>BUT no validation of instrument, or ecologically valid media data</li>
+<li>distribution of training /eval data don’t come from the target distribution</li>
+</ul>
+<p><img src="images/Ponce_Lopez_2016_figure_2.png" class="img-fluid"> Figure 2: <span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
+<p>Compared to <span class="citation" data-cites="koutsoumpis2024beyond">Koutsoumpis et al. (<a href="#ref-koutsoumpis2024beyond" role="doc-biblioref">2024</a>)</span>:</p>
+<ul>
+<li>ecological validity: media data was mock asynchronous video interviews</li>
+<li>ecological validity: interview questions designed to activate personality facets</li>
+<li>personality instruments: validated HEXACO scale</li>
+<li>perspectives: self &amp; observer ratings</li>
+</ul>
 </section>
 </section>
-<section id="present-work" class="level2">
-<h2 class="anchored" data-anchor-id="present-work">Present Work</h2>
+<section id="present-work" class="level1">
+<h1>Present Work</h1>
 <p>We incorporate these considerations in the design of our study, and attempt to further the field in the following ways:</p>
 <ul>
 <li>we attempt representative sampling of both media and respondents</li>
@@ -279,16 +328,19 @@ div.csl-indent {
 <li>we take into account perspectives</li>
 </ul>
 <p>case study of this thesis works towards path (b) in <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span> shown in: <img src="images/Liem_2018_figure_2.png" class="img-fluid"></p>
-</section>
 <section id="references" class="level2">
 
 
 
 
 </section>
+</section>
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-aroyo2015truth" class="csl-entry" role="listitem">
+Aroyo, L., &amp; Welty, C. (2015). Truth is a lie: Crowd truth and the seven myths of human annotation. <em>AI Magazine</em>, <em>36</em>(1), 15–24.
+</div>
 <div id="ref-beck2022improving" class="csl-entry" role="listitem">
 Beck, J., Eckman, S., Chew, R., &amp; Kreuter, F. (2022). Improving labeling through social science insights: Results and research agenda. <em>International Conference on Human-Computer Interaction</em>, 245–261.
 </div>

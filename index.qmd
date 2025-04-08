@@ -3,53 +3,17 @@ title: "Advancing Perspectivist Ground Truthing with Social Science "
 bibliography: references.bib
 ---
 
-## Poor reproducibility/replicability in ML research
 
-@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
 
-With regards to reference data:
+# ML/AI relies on reference data
 
-* representation bias / non-representative samples
-* measurement bias / unvalidated measurement instruments
-* underspecification of portions of input space in training data
-* transformation of data to optimize for 'accuracy'
-* lack of or poor dataset documentation
+@aroyo2015truth
 
-In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments. 
+* In order to evaluate ML / AI systems, we compare the output of these systems to reference data. 
+* One method for creating reference data is the collection of human annotations. 
+* This method typically assumes that, for every piece of content being annotated, there is a single canonical truth 
+* quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations
 
-### Social and computational sciences have different focci
-
-social sciences:
-
-* interpretable meaning of x and y
-* design is informed by theory
-
-computational sciences:
-
-* learning procedure f(x)
-
-![](images/Liem_2018_figure_1.png)
-Fig. 1: @liem2018psychology
-
-Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty @birhane2022values. Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds @hullman2022worst. 
-
-#### A tale of two studies: the case of personnel selection
-
-@ponce2016chalearn 
-
-* efficient way to gather media and annotation data
-* BUT no validation of instrument, or ecologically valid media data
-* distribution of training /eval data don't come from the target distribution
-
-![](images/Ponce_Lopez_2016_figure_2.png)
-Figure 2: @ponce2016chalearn 
-
-Compared to @koutsoumpis2024beyond:
-
-* ecological validity: media data was mock asynchronous video interviews
-* ecological validity: interview questions designed to activate personality facets
-* personality instruments: validated HEXACO scale
-* perspectives: self & observer ratings
 
 ### ML uses human annotations very often
 
@@ -86,12 +50,74 @@ also reviews possible reasons:
 * ecological probability
 * error model (psychometric model)
 
-### ML often ignores perspectives of annotators
+### sampling and measurement biases in ML research
 
-[crowd truth; perspectivist approach here]
+@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
+
+With regards to reference data:
+
+* representation bias / non-representative samples
+* measurement bias / unvalidated measurement instruments
+* underspecification of portions of input space in training data
+* transformation of data to optimize for 'accuracy'
+* lack of or poor dataset documentation
+
+In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments. 
 
 
-#### Issues with sampling 
+### ML ignores perspectives of annotators
+
+Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn't hold. 
+
+@aroyo2015truth
+
+7 'myths' of human annotation:
+
+* there is one truth
+* disagreement is bad
+* detailed guidelines help
+* experts are better
+* one annotator is enough
+* all items are created equal
+* once done, forever valid
+
+For myths 1 and 2: 
+
+* list examples from NLP where the disagreement from annotators is sensible
+* they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false. 
+
+While it can be indicative of annotation quality, e.g. the annotator is annotating incorrectly, in other cases disagreement indicates that the media being rated is ambiguous. 
+
+@beck2022improving: we should expect more variance to the degree that tasks measure opinion
+
+* show work on an intuitively perspective-based use-case: hate speech
+
+@aroyo2015truth operationalize 'crowd truth' with an illustration where the 'gold standard' is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.
+
+* i.e. the label isn't represented as 'present' or 'not present', but as a probablility
+* thus the 'crowd truth' attempts to capture the 'range of reasonable interpretations'
+
+# Tools from Social Science can help
+
+Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty are the primary values in ML work @birhane2022values. 
+
+Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds @hullman2022worst. This is problematic as this kind of optimization doesn't resemble real world deployment. 
+
+### Social and computational sciences have different focci
+
+social sciences:
+
+* interpretable meaning of x and y
+* design is informed by theory
+
+computational sciences:
+
+* learning procedure f(x)
+
+![](images/Liem_2018_figure_1.png)
+Fig. 1: @liem2018psychology
+
+### Issues with sampling 
 
 Solutions to sampling problems can come from sampling theory: @groves2009survey
 
@@ -105,7 +131,7 @@ solutions:
 
 * stratified sampling
 
-#### Issues with instruments
+### Issues with instruments
 
 @beck2022improving 
 
@@ -116,7 +142,29 @@ solutions:
 
 [another ref that describes the target as a latent variable]
 
-## Present Work
+### A tale of two studies: the case of personnel selection
+
+@ponce2016chalearn 
+
+* efficient way to gather media and annotation data
+* BUT no validation of instrument, or ecologically valid media data
+* distribution of training /eval data don't come from the target distribution
+
+![](images/Ponce_Lopez_2016_figure_2.png)
+Figure 2: @ponce2016chalearn 
+
+Compared to @koutsoumpis2024beyond:
+
+* ecological validity: media data was mock asynchronous video interviews
+* ecological validity: interview questions designed to activate personality facets
+* personality instruments: validated HEXACO scale
+* perspectives: self & observer ratings
+
+
+
+
+
+# Present Work
 
 We incorporate these considerations in the design of our study, and attempt to further the field in the following ways:
 

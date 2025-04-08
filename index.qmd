@@ -1,19 +1,21 @@
 ---
 title: "Advancing Perspectivist Ground Truthing with Social Science "
+bibliography: references.bib
 ---
 
 ## Poor reproducibility/replicability in ML research
 
-@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to reference datasets.
+@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
 
-They note that researchers often re-use datasets as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
+With regards to reference data:
 
-* use of non-representative samples
-* measurement bias
-* underspecification of the population captured in data
+* representation bias / non-representative samples
+* measurement bias / unvalidated measurement instruments
+* underspecification of portions of input space in training data
 * transformation of data to optimize for 'accuracy'
+* lack of or poor dataset documentation
 
-With caveats, they note that there are lessons to be learned from social science, and their replication crisis.  
+In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments. 
 
 ### Social and computational sciences have different focci
 
@@ -29,10 +31,7 @@ computational sciences:
 ![](images/Liem_2018_figure_1.png)
 Fig. 1: @liem2018psychology
 
-thus, positive yet unrealized interdisciplinary potentia, but also strong negative potential when disciplines ignore fundamental scientific issues in their research pipelines i.e. the "worst of both worlds" @hullman2022worst 
-
-
-
+Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty @birhane2022values. Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds @hullman2022worst. 
 
 #### A tale of two studies: the case of personnel selection
 
@@ -40,6 +39,7 @@ thus, positive yet unrealized interdisciplinary potentia, but also strong negati
 
 * efficient way to gather media and annotation data
 * BUT no validation of instrument, or ecologically valid media data
+* distribution of training /eval data don't come from the target distribution
 
 ![](images/Ponce_Lopez_2016_figure_2.png)
 Figure 2: @ponce2016chalearn 
@@ -65,8 +65,9 @@ Compared to @koutsoumpis2024beyond:
 
 i.e. ML re-uses external labels, and inadequately reports 'ground truth'
 
-without details of ground truth, we cannot know what the resulting model represents
+without details of ground truth, we cannot know what data generating process the resulting model represents @hullman2022worst. 
 [perhaps cat image parable here?]
+
 
 ### Human annotations aren't always accurate
 

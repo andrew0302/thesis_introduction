@@ -1,8 +1,802 @@
-<html xmlns="http://www.w3.org/1999/xhtml">    
-  <head>      
-    <title>Redirect to index.html</title>      
-    <meta http-equiv="refresh" content="0;URL='index.html'" />    
-  </head>    
-  <body> 
-  </body>  
-</html>     
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Advancing Perspectivist Ground Truthing with Social Science – Thesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Thesis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Introduction</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mlai-relies-on-reference-data" id="toc-mlai-relies-on-reference-data" class="nav-link active" data-scroll-target="#mlai-relies-on-reference-data">ML/AI relies on reference data</a>
+  <ul class="collapse">
+  <li><a href="#ml-uses-human-annotations-very-often" id="toc-ml-uses-human-annotations-very-often" class="nav-link" data-scroll-target="#ml-uses-human-annotations-very-often">ML uses human annotations very often</a></li>
+  <li><a href="#human-annotations-arent-always-accurate" id="toc-human-annotations-arent-always-accurate" class="nav-link" data-scroll-target="#human-annotations-arent-always-accurate">Human annotations aren’t always accurate</a></li>
+  <li><a href="#sampling-and-measurement-biases-in-ml-research" id="toc-sampling-and-measurement-biases-in-ml-research" class="nav-link" data-scroll-target="#sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</a></li>
+  <li><a href="#ml-ignores-perspectives-of-annotators" id="toc-ml-ignores-perspectives-of-annotators" class="nav-link" data-scroll-target="#ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</a></li>
+  </ul></li>
+  <li><a href="#tools-from-social-science-can-help" id="toc-tools-from-social-science-can-help" class="nav-link" data-scroll-target="#tools-from-social-science-can-help">Tools from Social Science can help</a>
+  <ul class="collapse">
+  <li><a href="#social-and-computational-sciences-have-different-focci" id="toc-social-and-computational-sciences-have-different-focci" class="nav-link" data-scroll-target="#social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</a></li>
+  <li><a href="#issues-with-sampling" id="toc-issues-with-sampling" class="nav-link" data-scroll-target="#issues-with-sampling">Issues with sampling</a></li>
+  <li><a href="#issues-with-instruments" id="toc-issues-with-instruments" class="nav-link" data-scroll-target="#issues-with-instruments">Issues with instruments</a></li>
+  <li><a href="#a-tale-of-two-studies-the-case-of-personnel-selection" id="toc-a-tale-of-two-studies-the-case-of-personnel-selection" class="nav-link" data-scroll-target="#a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</a></li>
+  </ul></li>
+  <li><a href="#present-work" id="toc-present-work" class="nav-link" data-scroll-target="#present-work">Present Work</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Advancing Perspectivist Ground Truthing with Social Science</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="mlai-relies-on-reference-data" class="level1">
+<h1>ML/AI relies on reference data</h1>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
+<ul>
+<li>In order to evaluate ML / AI systems, we compare the output of these systems to reference data.</li>
+<li>One method for creating reference data is the collection of human annotations.</li>
+<li>This method typically assumes that, for every piece of content being annotated, there is a single canonical truth</li>
+<li>quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations</li>
+</ul>
+<section id="ml-uses-human-annotations-very-often" class="level3">
+<h3 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h3>
+<p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span></p>
+<ul>
+<li>200 randomly sampled ML papers from 3 domains:
+<ul>
+<li>Social Sciences &amp; Humanities</li>
+<li>Life &amp; Biomedical Sciences</li>
+<li>Physical &amp; Environmental Sciences</li>
+</ul></li>
+<li>Out of 141 classification tasks, 103 (73.05%) used human labels</li>
+<li>Out of 103 human labels, 58 (56.31%) used only external labels</li>
+</ul>
+<p>i.e.&nbsp;ML re-uses external labels, and inadequately reports ‘ground truth’</p>
+<p>without details of ground truth, we cannot know what data generating process the resulting model represents <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span>. [perhaps cat image parable here?]</p>
+</section>
+<section id="human-annotations-arent-always-accurate" class="level3">
+<h3 class="anchored" data-anchor-id="human-annotations-arent-always-accurate">Human annotations aren’t always accurate</h3>
+<p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> review errors and biases in human judgements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li>over/under prediction: confidence score is higher/lower than accuracy</li>
+<li>over/under extremity: confidence is more extreme at ends</li>
+</ul>
+<p>also reviews possible reasons:</p>
+<ul>
+<li>optimistic overconfidence</li>
+<li>confirmation bias</li>
+<li>case-based judgment</li>
+<li>ecological probability</li>
+<li>error model (psychometric model)</li>
+</ul>
+</section>
+<section id="sampling-and-measurement-biases-in-ml-research" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</h3>
+<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects <span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span>.</p>
+<p>With regards to reference data:</p>
+<ul>
+<li>representation bias / non-representative samples</li>
+<li>measurement bias / unvalidated measurement instruments</li>
+<li>underspecification of portions of input space in training data</li>
+<li>transformation of data to optimize for ‘accuracy’</li>
+<li>lack of or poor dataset documentation</li>
+</ul>
+<p>In other words, optimizing for predictive accuracy using very large datasets does not ‘absolve’ researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments.</p>
+</section>
+<section id="ml-ignores-perspectives-of-annotators" class="level3">
+<h3 class="anchored" data-anchor-id="ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</h3>
+<p>Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn’t hold.</p>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
+<p>7 ‘myths’ of human annotation:</p>
+<ul>
+<li>there is one truth</li>
+<li>disagreement is bad</li>
+<li>detailed guidelines help</li>
+<li>experts are better</li>
+<li>one annotator is enough</li>
+<li>all items are created equal</li>
+<li>once done, forever valid</li>
+</ul>
+<p>For myths 1 and 2:</p>
+<ul>
+<li>list examples from NLP where the disagreement from annotators is sensible</li>
+<li>they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false.</li>
+</ul>
+<p>While it can be indicative of annotation quality, e.g.&nbsp;the annotator is annotating incorrectly, in other cases disagreement indicates that the media being rated is ambiguous.</p>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion</p>
+<ul>
+<li>show work on an intuitively perspective-based use-case: hate speech</li>
+</ul>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span> operationalize ‘crowd truth’ with an illustration where the ‘gold standard’ is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.</p>
+<ul>
+<li>i.e.&nbsp;the label isn’t represented as ‘present’ or ‘not present’, but as a probablility</li>
+<li>thus the ‘crowd truth’ attempts to capture the ‘range of reasonable interpretations’</li>
+</ul>
+</section>
+</section>
+<section id="tools-from-social-science-can-help" class="level1">
+<h1>Tools from Social Science can help</h1>
+<p>Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty are the primary values in ML work <span class="citation" data-cites="birhane2022values">Birhane et al. (<a href="#ref-birhane2022values" role="doc-biblioref">2022</a>)</span>.</p>
+<p>Unlike the social sciences (e.g.&nbsp;psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span>. This is problematic as this kind of optimization doesn’t resemble real world deployment.</p>
+<section id="social-and-computational-sciences-have-different-focci" class="level3">
+<h3 class="anchored" data-anchor-id="social-and-computational-sciences-have-different-focci">Social and computational sciences have different focci</h3>
+<p>social sciences:</p>
+<ul>
+<li>interpretable meaning of x and y</li>
+<li>design is informed by theory</li>
+</ul>
+<p>computational sciences:</p>
+<ul>
+<li>learning procedure f(x)</li>
+</ul>
+<p><img src="images/Liem_2018_figure_1.png" class="img-fluid"> Fig. 1: <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span></p>
+</section>
+<section id="issues-with-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="issues-with-sampling">Issues with sampling</h3>
+<p>Solutions to sampling problems can come from sampling theory: <span class="citation" data-cites="groves2009survey">Groves et al. (<a href="#ref-groves2009survey" role="doc-biblioref">2009</a>)</span></p>
+<p>considerations:</p>
+<ul>
+<li>sampling frame: the elements in from populations that you have access to</li>
+<li>ineligible units: elements in the sampling frame that are not your target</li>
+<li>undercoverage: elements from target population that are not in the frame</li>
+</ul>
+<p>solutions:</p>
+<ul>
+<li>stratified sampling</li>
+</ul>
+</section>
+<section id="issues-with-instruments" class="level3">
+<h3 class="anchored" data-anchor-id="issues-with-instruments">Issues with instruments</h3>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span></p>
+<ul>
+<li>annotation collection requires design thinking
+<ul>
+<li>Task Structure: specific wording and response options, including debates over the inclusion of “I don’t Know” option</li>
+<li>Order Effects: specific judgements are affected by previous perceptions</li>
+<li>Annotator Effects: backgrounds, opinions, experiences of respondents affect responses</li>
+</ul></li>
+</ul>
+<p>[another ref that describes the target as a latent variable]</p>
+</section>
+<section id="a-tale-of-two-studies-the-case-of-personnel-selection" class="level3">
+<h3 class="anchored" data-anchor-id="a-tale-of-two-studies-the-case-of-personnel-selection">A tale of two studies: the case of personnel selection</h3>
+<p><span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
+<ul>
+<li>efficient way to gather media and annotation data</li>
+<li>BUT no validation of instrument, or ecologically valid media data</li>
+<li>distribution of training /eval data don’t come from the target distribution</li>
+</ul>
+<p><img src="images/Ponce_Lopez_2016_figure_2.png" class="img-fluid"> Figure 2: <span class="citation" data-cites="ponce2016chalearn">Ponce-López et al. (<a href="#ref-ponce2016chalearn" role="doc-biblioref">2016</a>)</span></p>
+<p>Compared to <span class="citation" data-cites="koutsoumpis2024beyond">Koutsoumpis et al. (<a href="#ref-koutsoumpis2024beyond" role="doc-biblioref">2024</a>)</span>:</p>
+<ul>
+<li>ecological validity: media data was mock asynchronous video interviews</li>
+<li>ecological validity: interview questions designed to activate personality facets</li>
+<li>personality instruments: validated HEXACO scale</li>
+<li>perspectives: self &amp; observer ratings</li>
+</ul>
+</section>
+</section>
+<section id="present-work" class="level1">
+<h1>Present Work</h1>
+<p>We incorporate these considerations in the design of our study, and attempt to further the field in the following ways:</p>
+<ul>
+<li>we attempt representative sampling of both media and respondents</li>
+<li>we aim to estimate 10-dimensional psychological construct</li>
+<li>we select media that is ambiguous (i.e.&nbsp;that will result in subjectivity in the ratings) as well as media that we expect not to be ambiguous for comparison</li>
+<li>we estimate a-priori the number of ratings necessary rather than assuming</li>
+<li>we take into account perspectives</li>
+</ul>
+<p>case study of this thesis works towards path (b) in <span class="citation" data-cites="liem2018psychology">Liem et al. (<a href="#ref-liem2018psychology" role="doc-biblioref">2018</a>)</span> shown in: <img src="images/Liem_2018_figure_2.png" class="img-fluid"></p>
+<section id="references" class="level2">
+
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-aroyo2015truth" class="csl-entry" role="listitem">
+Aroyo, L., &amp; Welty, C. (2015). Truth is a lie: Crowd truth and the seven myths of human annotation. <em>AI Magazine</em>, <em>36</em>(1), 15–24.
+</div>
+<div id="ref-beck2022improving" class="csl-entry" role="listitem">
+Beck, J., Eckman, S., Chew, R., &amp; Kreuter, F. (2022). Improving labeling through social science insights: Results and research agenda. <em>International Conference on Human-Computer Interaction</em>, 245–261.
+</div>
+<div id="ref-birhane2022values" class="csl-entry" role="listitem">
+Birhane, A., Kalluri, P., Card, D., Agnew, W., Dotan, R., &amp; Bao, M. (2022). The values encoded in machine learning research. <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em>, 173–184.
+</div>
+<div id="ref-geiger2021garbage" class="csl-entry" role="listitem">
+Geiger, R. S., Cope, D., Ip, J., Lotosh, M., Shah, A., Weng, J., &amp; Tang, R. (2021). " garbage in, garbage out" revisited: What do machine learning application papers report about human-labeled training data? <em>arXiv Preprint arXiv:2107.02278</em>.
+</div>
+<div id="ref-griffin2004perspectives" class="csl-entry" role="listitem">
+Griffin, D., &amp; Brenner, L. (2004). Perspectives on probability judgment calibration. <em>Blackwell Handbook of Judgment and Decision Making</em>, <em>199</em>, 158–177.
+</div>
+<div id="ref-groves2009survey" class="csl-entry" role="listitem">
+Groves, R. M., Fowler Jr, F. J., Couper, M. P., Lepkowski, J. M., Singer, E., &amp; Tourangeau, R. (2009). <em>Survey methodology</em> (Vol. 561). John Wiley &amp; Sons.
+</div>
+<div id="ref-hullman2022worst" class="csl-entry" role="listitem">
+Hullman, J., Kapoor, S., Nanayakkara, P., Gelman, A., &amp; Narayanan, A. (2022). The worst of both worlds: A comparative analysis of errors in learning from data in psychology and machine learning. <em>Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society</em>, 335–348.
+</div>
+<div id="ref-koutsoumpis2024beyond" class="csl-entry" role="listitem">
+Koutsoumpis, A., Ghassemi, S., Oostrom, J. K., Holtrop, D., Breda, W. van, Zhang, T., &amp; Vries, R. E. de. (2024). Beyond traditional interviews: Psychometric analysis of asynchronous video interviews for personality and interview performance evaluation using machine learning. <em>Computers in Human Behavior</em>, <em>154</em>, 108128.
+</div>
+<div id="ref-liem2018psychology" class="csl-entry" role="listitem">
+Liem, C. C., Langer, M., Demetriou, A., Hiemstra, A. M., Sukma Wicaksana, A., Born, M. P., &amp; König, C. J. (2018). Psychology meets machine learning: Interdisciplinary perspectives on algorithmic job candidate screening. <em>Explainable and Interpretable Models in Computer Vision and Machine Learning</em>, 197–253.
+</div>
+<div id="ref-ponce2016chalearn" class="csl-entry" role="listitem">
+Ponce-López, V., Chen, B., Oliu, M., Corneanu, C., Clapés, A., Guyon, I., Baró, X., Escalante, H. J., &amp; Escalera, S. (2016). Chalearn lap 2016: First round challenge on first impressions-dataset and results. <em>Computer Vision–ECCV 2016 Workshops: Amsterdam, the Netherlands, October 8-10 and 15-16, 2016, Proceedings, Part III 14</em>, 400–418.
+</div>
+<div id="ref-sambasivan2021everyone" class="csl-entry" role="listitem">
+Sambasivan, N., Kapania, S., Highfill, H., Akrong, D., Paritosh, P., &amp; Aroyo, L. M. (2021). <span>“Everyone wants to do the model work, not the data work”</span>: Data cascades in high-stakes AI. <em>Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems</em>, 1–15.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> note that much of this work was about people guessing knowledge from an almanac, and then guessing how accurate they were<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

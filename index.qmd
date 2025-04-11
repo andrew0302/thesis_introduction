@@ -1,72 +1,158 @@
 ---
 title: "Advancing Perspectivist Ground Truthing with Social Science "
 bibliography: references.bib
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-
-
-# ML/AI relies on reference data
+# ML/AI relies on reference data from human annotations
 
 @aroyo2015truth
 
-* In order to evaluate ML / AI systems, we compare the output of these systems to reference data. 
-* One method for creating reference data is the collection of human annotations. 
-* This method typically assumes that, for every piece of content being annotated, there is a single canonical truth 
-* quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations
+-   In order to evaluate ML / AI systems, we compare the output of these
+    systems to reference data.
+-   One method for creating reference data is the collection of human
+    annotations.
+-   This method typically assumes that, for every piece of content being
+    annotated, there is a single canonical truth
+-   quality of annotations is assessed using inter-annotator agreement,
+    where more agreement = better annotations
 
+@cabitza2023toward: "data annotation is the practice of labeling a set
+of digital representations of objects."
 
-## ML uses human annotations very often
+according to Muller et al., 2012 it has three components
 
-@geiger2021garbage 
+-   data collection: the labeling scheme
+-   data annotation: the actual labeling by experts or crowd workers
+-   data aggregation: producing a single or a single set of labels from
+    the multiple labels collected
 
-* 200 randomly sampled ML papers from 3 domains:
-  * Social Sciences & Humanities
-  * Life & Biomedical Sciences
-  * Physical & Environmental Sciences
+@geiger2021garbage: ML uses human annotations very often
 
-* Out of 141 classification tasks, 103 (73.05%) used human labels
-* Out of 103 human labels, 58 (56.31%) used only external labels
+-   200 randomly sampled ML papers from 3 domains:
+    -   Social Sciences & Humanities
+    -   Life & Biomedical Sciences
+    -   Physical & Environmental Sciences
+-   Out of 141 classification tasks, 103 (73.05%) used human labels
+-   Out of 103 human labels, 58 (56.31%) used only external labels
 
 i.e. ML re-uses external labels
 
-
 ## Issues using human annotations in ML
 
-A number of works have shown issues with annotations in ML 
+A number of works have shown issues with annotations in ML
 
-@sambasivan2021everyone ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects.
+@hullman2022worst compare claims that ML is facing a reproducibility
+crisis to the crisis in psychology. Among the issues they note relate to
+benchmark datasets, which researchers often re-use as they publish on
+standardized benchmarks, and because they are cost prohibitive to
+collect.
 
-[geiger, first paper, show lack of reporting in ML textbooks on ground truthing]
+One reason may be: @sambasivan2021everyone ML researchers broadly prefer
+to work on building and evaluating performance, rather than executing
+ground-truthing projects.
 
-Works have also argued how human annotations would benefit from social science 
+Another may be that the skills are not being taught: \[geiger, first
+paper, show lack of reporting in ML textbooks on ground truthing\]
 
-@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. 
+A number of papers have drawn from the social sciences to synthesize
+knowledge on how best to gather annotations.
+
+### ML treats all annotation variance as noise rather than signal
+
+disagreement is common
+
+reviewed in @cabitza2023toward: -social media content: Chandrasekharan
+2017 -medical cases: Cabitza 2019 -various NLP tasks @aroyo2015truth
+
+disagreement is often removed
+
+-   adjusting annotator training and instruction
+-   adjusting annotations via discussion post-collection
+-   majority voting, post-hoc without annotators
+
+Beyond errors in judgment are questions about the target for the
+annotations. For at least some phenomena, the assumption that there is a
+single ground-truth to approximate with annotations doesn't hold.
+
+@aroyo2015truth
+
+7 'myths' of human annotation:
+
+-   there is one truth
+-   disagreement is bad
+-   detailed guidelines help
+-   experts are better
+-   one annotator is enough
+-   all items are created equal
+-   once done, forever valid
+
+For myths 1 and 2:
+
+-   list examples from NLP where the disagreement from annotators is
+    sensible
+-   they argue that the assumptions of a single ground truth, and that
+    disagreement is indicative of poor annotations are both false.
+
+for myth 6: disagreement indicates that the media being rated is
+ambiguous.
+
+#### annotations aim to measure a latent variable
+
+@jacobs2021measurement there is a 'measurement error model' (taken from
+econ) that links the unobservable latent variable, and observable
+properties. in annotations this is via individual observations
+
+although paper focuses on attempts at measuring constructs (risk of
+recidivism, teacher effectiveness, patient benefit) they also show that
+even 'representational measurements' like height, are essentially a
+latent variable
+
+@aroyo2015truth operationalize 'crowd truth' with an illustration where
+the 'gold standard' is the probability that a sentence contains an
+element, based on the probability that an annotator annotated that
+sentence with that element.
+
+-   i.e. the label isn't represented as 'present' or 'not present', but
+    as a probablility
+-   thus the 'crowd truth' attempts to capture the 'range of reasonable
+    interpretations'
+
+@beck2022improving: we should expect more variance to the degree that
+tasks measure opinion show work on an intuitively perspective-based
+use-case: hate speech
 
 ### Human annotations aren't always accurate
 
-@griffin2004perspectives review errors and biases in human judgements[^2]
+@griffin2004perspectives review errors and biases in human
+judgements[^1]
 
-[^2]: @griffin2004perspectives note that much of this work was about people guessing knowledge from an almanac, and then guessing how accurate they were
+[^1]: @griffin2004perspectives note that much of this work was about
+    people guessing knowledge from an almanac, and then guessing how
+    accurate they were
 
-* over/under prediction: confidence score is higher/lower than accuracy
-* over/under extremity: confidence is more extreme at ends
+-   over/under prediction: confidence score is higher/lower than
+    accuracy
+-   over/under extremity: confidence is more extreme at ends
 
 also reviews possible reasons:
 
-* optimistic overconfidence
-* confirmation bias
-* case-based judgment
-* ecological probability
-* error model (psychometric model)
+-   optimistic overconfidence
+-   confirmation bias
+-   case-based judgment
+-   ecological probability
+-   error model (psychometric model)
 
 ### Inadequate reporting
 
-@geiger2021garbage  ML science studies inadequately report 'ground truth' 
+@geiger2021garbage ML science studies inadequately report 'ground truth'
 
-@hullman2022worst thus we cannot know what data generating process the resulting model represents 
+@hullman2022worst thus we cannot know what data generating process the
+resulting model represents
 
-[perhaps cat image parable here?]
-
+\[perhaps cat image parable here?\]
 
 ### sampling and measurement biases
 
@@ -74,167 +160,226 @@ also reviews possible reasons:
 
 With regards to reference data:
 
-* representation bias / non-representative samples
-* measurement bias / unvalidated measurement instruments
-* underspecification of portions of input space in training data
-* transformation of data to optimize for 'accuracy'
-* lack of or poor dataset documentation
+-   representation bias / non-representative samples
+-   measurement bias / unvalidated measurement instruments
+-   underspecification of portions of input space in training data
+-   transformation of data to optimize for 'accuracy'
+-   lack of or poor dataset documentation
 
-In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments. 
-
-
-### ML treats all annotation variance as noise rather than signal
-
-Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn't hold. 
-
-@aroyo2015truth
-
-7 'myths' of human annotation:
-
-* there is one truth
-* disagreement is bad
-* detailed guidelines help
-* experts are better
-* one annotator is enough
-* all items are created equal
-* once done, forever valid
-
-For myths 1 and 2: 
-
-* list examples from NLP where the disagreement from annotators is sensible
-* they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false. 
-
-for myth 6: disagreement indicates that the media being rated is ambiguous. 
-
-#### annotations aim to measure a latent variable
-
-@jacobs2021measurement there is a 'measurement error model' (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations 
-
-although focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even 'representational measurements' like height, are essentially a latent variable
-
-@aroyo2015truth operationalize 'crowd truth' with an illustration where the 'gold standard' is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.
-
-* i.e. the label isn't represented as 'present' or 'not present', but as a probablility
-* thus the 'crowd truth' attempts to capture the 'range of reasonable interpretations'
-
-@beck2022improving: we should expect more variance to the degree that tasks measure opinion
-show work on an intuitively perspective-based use-case: hate speech
+In other words, optimizing for predictive accuracy using very large
+datasets does not 'absolve' researchers from having to consider the data
+generating process. They note benefits that both machine learning and
+psychology could gain by borrowing methods from each other, but note the
+danger if these are misused. For the benefit of machine learning, there
+are lessons to be learned from social science, and the replication
+crisis. Among them are 1) collecting samples whose test/evaluation set
+distributions are drawn from the same deployment distribution, and 2)
+using valid measurement instruments.
 
 ### ML doesn't treat annotation generating process as an instrument
 
-@beck2022improving 
+@beck2022improving
 
-* annotation collection requires design thinking
-  * Task Structure: specific wording and response options, including debates over the inclusion of "I don't Know" option
-  * Order Effects: specific judgements are affected by previous perceptions
-  * Annotator Effects: backgrounds, opinions, experiences of respondents affect responses
+-   annotation collection requires design thinking
+    -   Task Structure: specific wording and response options, including
+        debates over the inclusion of "I don't Know" option
+    -   Order Effects: specific judgements are affected by previous
+        perceptions
+    -   Annotator Effects: backgrounds, opinions, experiences of
+        respondents affect responses
 
 @jacobs2021measurement
 
-* reliability: do similar inputs to a measurement model present similar outputs?
+-   reliability: do similar inputs to a measurement model present
+    similar outputs?
 
-test-retest: are measurements of an unobservable latent construct taken at different times via a measurement model similar, assuming the construct hasn't changed?
+test-retest: are measurements of an unobservable latent construct taken
+at different times via a measurement model similar, assuming the
+construct hasn't changed?
 
-* validity: is it 'right'?
+-   validity: is it 'right'?
 
-no single test for validity on purpose, because it requires thinking.
-do our measurements:
+no single test for validity on purpose, because it requires thinking. do
+our measurements:
 
-* face validity: look plausible/ sensible?
-* content validity: capture the construct?
-  * structural validity: show the inter-correlations we expect?
-  * substantive validity: capture only observable properties thought to be related to the construct?
-* convergent validity: show correlations with other validated methods?
-* discriminant validity: show correlations with other construct/properties thought not to be related to the construct?
-* predictive validity: show correlations with constructs/properties thought to be related, but not in the operationalization?
-* hypothesis validity: shed light on relevant hypotheses about the construct being measured?
-* consequential validity: allow for the consequences obtained from the measurement model to be assessed?
-
+-   face validity: look plausible/ sensible?
+-   content validity: capture the construct?
+    -   structural validity: show the inter-correlations we expect?
+    -   substantive validity: capture only observable properties thought
+        to be related to the construct?
+-   convergent validity: show correlations with other validated methods?
+-   discriminant validity: show correlations with other
+    construct/properties thought not to be related to the construct?
+-   predictive validity: show correlations with constructs/properties
+    thought to be related, but not in the operationalization?
+-   hypothesis validity: shed light on relevant hypotheses about the
+    construct being measured?
+-   consequential validity: allow for the consequences obtained from the
+    measurement model to be assessed?
 
 ### ML ignores perspectives of annotators
 
-cabitza
+@cabitza2023toward: whether the target of the annotation is a subjective
+phenomenon or not, disagreement is always irreducible. Yet ML typically
+assumes there is a single 'ground truth', and its best indicator is
+inter-annotator agreement. But taking the perspectives of the annotators
+into account, both in the data annotation but also the modelling phase
+of ML projects has recently been shown to benefit ML modelling in a
+number of contexts.
+
+weak perspectivist approach: taking perspectives into account while
+designing and collecting annotations, but ultimately reducing
+annotations to a single label or rating.
+
+strong perspectivist approach: taking perspectives into account for
+ground truthing and modelling phases.
+
+benefits of this approach:
+
+-   is congruent with the reality of collecting annotations
+
+-   includes the signal in the variance of labels or ratings
+
+-   avoids majority group perspective appearing to be 'objective'
+
+-   allows for the modelling of human errors and variances
+
+-   allows for uncertain, fuzzy, or soft model development
+
+-   more complete report of the data generating process, as it also
+    reports uncertainty
+
+downsides:
+
+-   multiple raters, and therefore costs/time/rater availability are
+    issues
+
+-   need for perspectivist ML approaches
+
+-   validation becomes more challenging
+
+recommendations:
+
+-   complete labeling schemes, including 'i don't know', 'none of these'
+    etc. categories, and the ability to express issues with label set
+
+-   enough raters
+
+-   heterogenous raters
+
+-   adequate reporting:
+
+    -   number of raters,
+
+    -   rater expertise
+
+    -   incentive
+
+    -   instructions
+
+    -   length of time for labelling
+
+    -   inter rater agreement
+
+    -   aggregation method
+
+    -   confidence
 
 # Tools from Social Science can help
 
-Recent trends—especially in deep learning—prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty are the primary values in ML work @birhane2022values. 
+Recent trends—especially in deep learning—prioritize empirical
+performance over theoretical assumptions about the data generating
+process. A systematic analysis of highly cited ML works shows that
+Performance, Generalization, Quantitative evidence, Efficiency, Building
+on past work, and Novelty are the primary values in ML work
+@birhane2022values.
 
-Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that will within estimable error bounds @hullman2022worst. This is problematic as this kind of optimization doesn't resemble real world deployment. 
+Unlike the social sciences (e.g. psychology), ML work ignores attempts
+to model the process that gives rise to the data, assuming it cannot be
+learned, and aims instead at predictors that will within estimable error
+bounds @hullman2022worst. This is problematic as this kind of
+optimization doesn't resemble real world deployment.
 
 ### Social and computational sciences have different focci
 
 social sciences:
 
-* interpretable meaning of x and y
-* design is informed by theory
+-   interpretable meaning of x and y
+-   design is informed by theory
 
 computational sciences:
 
-* learning procedure f(x)
+-   learning procedure f(x)
 
-![](images/Liem_2018_figure_1.png)
-Fig. 1: @liem2018psychology
+![](images/Liem_2018_figure_1.png) Fig. 1: @liem2018psychology
 
-### Issues with sampling 
+### Issues with sampling
 
-Solutions to sampling problems can come from sampling theory: @groves2009survey
+Solutions to sampling problems can come from sampling theory:
+@groves2009survey
 
 considerations:
 
-* sampling frame: the elements in from populations that you have access to
-* ineligible units: elements in the sampling frame that are not your target
-* undercoverage: elements from target population that are not in the frame
+-   sampling frame: the elements in from populations that you have
+    access to
+-   ineligible units: elements in the sampling frame that are not your
+    target
+-   undercoverage: elements from target population that are not in the
+    frame
 
 solutions:
 
-* stratified sampling
+-   stratified sampling
 
 ### Issues with instruments
 
-@beck2022improving 
+@beck2022improving
 
-* annotation collection requires design thinking
-  * Task Structure: specific wording and response options, including debates over the inclusion of "I don't Know" option
-  * Order Effects: specific judgements are affected by previous perceptions
-  * Annotator Effects: backgrounds, opinions, experiences of respondents affect responses
+-   annotation collection requires design thinking
+    -   Task Structure: specific wording and response options, including
+        debates over the inclusion of "I don't Know" option
+    -   Order Effects: specific judgements are affected by previous
+        perceptions
+    -   Annotator Effects: backgrounds, opinions, experiences of
+        respondents affect responses
 
-[another ref that describes the target as a latent variable]
+\[another ref that describes the target as a latent variable\]
 
 ### A tale of two studies: the case of personnel selection
 
-@ponce2016chalearn 
+@ponce2016chalearn
 
-* efficient way to gather media and annotation data
-* BUT no validation of instrument, or ecologically valid media data
-* distribution of training /eval data don't come from the target distribution
+-   efficient way to gather media and annotation data
+-   BUT no validation of instrument, or ecologically valid media data
+-   distribution of training /eval data don't come from the target
+    distribution
 
-![](images/Ponce_Lopez_2016_figure_2.png)
-Figure 2: @ponce2016chalearn 
+![](images/Ponce_Lopez_2016_figure_2.png) Figure 2: @ponce2016chalearn
 
 Compared to @koutsoumpis2024beyond:
 
-* ecological validity: media data was mock asynchronous video interviews
-* ecological validity: interview questions designed to activate personality facets
-* personality instruments: validated HEXACO scale
-* perspectives: self & observer ratings
-
-
-
-
+-   ecological validity: media data was mock asynchronous video
+    interviews
+-   ecological validity: interview questions designed to activate
+    personality facets
+-   personality instruments: validated HEXACO scale
+-   perspectives: self & observer ratings
 
 # Present Work
 
-We incorporate these considerations in the design of our study, and attempt to further the field in the following ways:
+We incorporate these considerations in the design of our study, and
+attempt to further the field in the following ways:
 
-* we attempt representative sampling of both media and respondents
-* we aim to estimate 10-dimensional psychological construct
-* we select media that is ambiguous (i.e. that will result in subjectivity in the ratings) as well as media that we expect not to be ambiguous for comparison
-* we estimate a-priori the number of ratings necessary rather than assuming
-* we take into account perspectives
+-   we attempt representative sampling of both media and respondents
+-   we aim to estimate 10-dimensional psychological construct
+-   we select media that is ambiguous (i.e. that will result in
+    subjectivity in the ratings) as well as media that we expect not to
+    be ambiguous for comparison
+-   we estimate a-priori the number of ratings necessary rather than
+    assuming
+-   we take into account perspectives
 
-case study of this thesis works towards path (b) in @liem2018psychology shown in:
-![](images/Liem_2018_figure_2.png)
-
+case study of this thesis works towards path (b) in @liem2018psychology
+shown in: ![](images/Liem_2018_figure_2.png)
 
 ## References
-

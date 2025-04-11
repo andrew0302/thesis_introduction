@@ -127,15 +127,14 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mlai-relies-on-reference-data" id="toc-mlai-relies-on-reference-data" class="nav-link active" data-scroll-target="#mlai-relies-on-reference-data">ML/AI relies on reference data</a>
+  <li><a href="#mlai-relies-on-reference-data-from-human-annotations" id="toc-mlai-relies-on-reference-data-from-human-annotations" class="nav-link active" data-scroll-target="#mlai-relies-on-reference-data-from-human-annotations">ML/AI relies on reference data from human annotations</a>
   <ul class="collapse">
-  <li><a href="#ml-uses-human-annotations-very-often" id="toc-ml-uses-human-annotations-very-often" class="nav-link" data-scroll-target="#ml-uses-human-annotations-very-often">ML uses human annotations very often</a></li>
   <li><a href="#issues-using-human-annotations-in-ml" id="toc-issues-using-human-annotations-in-ml" class="nav-link" data-scroll-target="#issues-using-human-annotations-in-ml">Issues using human annotations in ML</a>
   <ul class="collapse">
+  <li><a href="#ml-treats-all-annotation-variance-as-noise-rather-than-signal" id="toc-ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="nav-link" data-scroll-target="#ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</a></li>
   <li><a href="#human-annotations-arent-always-accurate" id="toc-human-annotations-arent-always-accurate" class="nav-link" data-scroll-target="#human-annotations-arent-always-accurate">Human annotations aren’t always accurate</a></li>
   <li><a href="#inadequate-reporting" id="toc-inadequate-reporting" class="nav-link" data-scroll-target="#inadequate-reporting">Inadequate reporting</a></li>
   <li><a href="#sampling-and-measurement-biases" id="toc-sampling-and-measurement-biases" class="nav-link" data-scroll-target="#sampling-and-measurement-biases">sampling and measurement biases</a></li>
-  <li><a href="#ml-treats-all-annotation-variance-as-noise-rather-than-signal" id="toc-ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="nav-link" data-scroll-target="#ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</a></li>
   <li><a href="#ml-doesnt-treat-annotation-generating-process-as-an-instrument" id="toc-ml-doesnt-treat-annotation-generating-process-as-an-instrument" class="nav-link" data-scroll-target="#ml-doesnt-treat-annotation-generating-process-as-an-instrument">ML doesn’t treat annotation generating process as an instrument</a></li>
   <li><a href="#ml-ignores-perspectives-of-annotators" id="toc-ml-ignores-perspectives-of-annotators" class="nav-link" data-scroll-target="#ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</a></li>
   </ul></li>
@@ -176,8 +175,8 @@ div.csl-indent {
 </header>
 
 
-<section id="mlai-relies-on-reference-data" class="level1">
-<h1>ML/AI relies on reference data</h1>
+<section id="mlai-relies-on-reference-data-from-human-annotations" class="level1">
+<h1>ML/AI relies on reference data from human annotations</h1>
 <p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
 <ul>
 <li>In order to evaluate ML / AI systems, we compare the output of these systems to reference data.</li>
@@ -185,9 +184,14 @@ div.csl-indent {
 <li>This method typically assumes that, for every piece of content being annotated, there is a single canonical truth</li>
 <li>quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations</li>
 </ul>
-<section id="ml-uses-human-annotations-very-often" class="level2">
-<h2 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h2>
-<p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span></p>
+<p><span class="citation" data-cites="cabitza2023toward">Cabitza et al. (<a href="#ref-cabitza2023toward" role="doc-biblioref">2023</a>)</span>: “data annotation is the practice of labeling a set of digital representations of objects.”</p>
+<p>according to Muller et al., 2012 it has three components</p>
+<ul>
+<li>data collection: the labeling scheme</li>
+<li>data annotation: the actual labeling by experts or crowd workers</li>
+<li>data aggregation: producing a single or a single set of labels from the multiple labels collected</li>
+</ul>
+<p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span>: ML uses human annotations very often</p>
 <ul>
 <li>200 randomly sampled ML papers from 3 domains:
 <ul>
@@ -199,14 +203,53 @@ div.csl-indent {
 <li>Out of 103 human labels, 58 (56.31%) used only external labels</li>
 </ul>
 <p>i.e.&nbsp;ML re-uses external labels</p>
-</section>
 <section id="issues-using-human-annotations-in-ml" class="level2">
 <h2 class="anchored" data-anchor-id="issues-using-human-annotations-in-ml">Issues using human annotations in ML</h2>
 <p>A number of works have shown issues with annotations in ML</p>
-<p><span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span> ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects.</p>
-<p>[geiger, first paper, show lack of reporting in ML textbooks on ground truthing]</p>
-<p>Works have also argued how human annotations would benefit from social science</p>
 <p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect.</p>
+<p>One reason may be: <span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span> ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects.</p>
+<p>Another may be that the skills are not being taught: [geiger, first paper, show lack of reporting in ML textbooks on ground truthing]</p>
+<p>A number of papers have drawn from the social sciences to synthesize knowledge on how best to gather annotations.</p>
+<section id="ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="level3">
+<h3 class="anchored" data-anchor-id="ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</h3>
+<p>disagreement is common</p>
+<p>reviewed in <span class="citation" data-cites="cabitza2023toward">Cabitza et al. (<a href="#ref-cabitza2023toward" role="doc-biblioref">2023</a>)</span>: -social media content: Chandrasekharan 2017 -medical cases: Cabitza 2019 -various NLP tasks <span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
+<p>disagreement is often removed</p>
+<ul>
+<li>adjusting annotator training and instruction</li>
+<li>adjusting annotations via discussion post-collection</li>
+<li>majority voting, post-hoc without annotators</li>
+</ul>
+<p>Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn’t hold.</p>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
+<p>7 ‘myths’ of human annotation:</p>
+<ul>
+<li>there is one truth</li>
+<li>disagreement is bad</li>
+<li>detailed guidelines help</li>
+<li>experts are better</li>
+<li>one annotator is enough</li>
+<li>all items are created equal</li>
+<li>once done, forever valid</li>
+</ul>
+<p>For myths 1 and 2:</p>
+<ul>
+<li>list examples from NLP where the disagreement from annotators is sensible</li>
+<li>they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false.</li>
+</ul>
+<p>for myth 6: disagreement indicates that the media being rated is ambiguous.</p>
+<section id="annotations-aim-to-measure-a-latent-variable" class="level4">
+<h4 class="anchored" data-anchor-id="annotations-aim-to-measure-a-latent-variable">annotations aim to measure a latent variable</h4>
+<p><span class="citation" data-cites="jacobs2021measurement">Jacobs &amp; Wallach (<a href="#ref-jacobs2021measurement" role="doc-biblioref">2021</a>)</span> there is a ‘measurement error model’ (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations</p>
+<p>although paper focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even ‘representational measurements’ like height, are essentially a latent variable</p>
+<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span> operationalize ‘crowd truth’ with an illustration where the ‘gold standard’ is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.</p>
+<ul>
+<li>i.e.&nbsp;the label isn’t represented as ‘present’ or ‘not present’, but as a probablility</li>
+<li>thus the ‘crowd truth’ attempts to capture the ‘range of reasonable interpretations’</li>
+</ul>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion show work on an intuitively perspective-based use-case: hate speech</p>
+</section>
+</section>
 <section id="human-annotations-arent-always-accurate" class="level3">
 <h3 class="anchored" data-anchor-id="human-annotations-arent-always-accurate">Human annotations aren’t always accurate</h3>
 <p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> review errors and biases in human judgements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -241,38 +284,6 @@ div.csl-indent {
 <li>lack of or poor dataset documentation</li>
 </ul>
 <p>In other words, optimizing for predictive accuracy using very large datasets does not ‘absolve’ researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments.</p>
-</section>
-<section id="ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="level3">
-<h3 class="anchored" data-anchor-id="ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</h3>
-<p>Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn’t hold.</p>
-<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
-<p>7 ‘myths’ of human annotation:</p>
-<ul>
-<li>there is one truth</li>
-<li>disagreement is bad</li>
-<li>detailed guidelines help</li>
-<li>experts are better</li>
-<li>one annotator is enough</li>
-<li>all items are created equal</li>
-<li>once done, forever valid</li>
-</ul>
-<p>For myths 1 and 2:</p>
-<ul>
-<li>list examples from NLP where the disagreement from annotators is sensible</li>
-<li>they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false.</li>
-</ul>
-<p>for myth 6: disagreement indicates that the media being rated is ambiguous.</p>
-<section id="annotations-aim-to-measure-a-latent-variable" class="level4">
-<h4 class="anchored" data-anchor-id="annotations-aim-to-measure-a-latent-variable">annotations aim to measure a latent variable</h4>
-<p><span class="citation" data-cites="jacobs2021measurement">Jacobs &amp; Wallach (<a href="#ref-jacobs2021measurement" role="doc-biblioref">2021</a>)</span> there is a ‘measurement error model’ (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations</p>
-<p>although focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even ‘representational measurements’ like height, are essentially a latent variable</p>
-<p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span> operationalize ‘crowd truth’ with an illustration where the ‘gold standard’ is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.</p>
-<ul>
-<li>i.e.&nbsp;the label isn’t represented as ‘present’ or ‘not present’, but as a probablility</li>
-<li>thus the ‘crowd truth’ attempts to capture the ‘range of reasonable interpretations’</li>
-</ul>
-<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion show work on an intuitively perspective-based use-case: hate speech</p>
-</section>
 </section>
 <section id="ml-doesnt-treat-annotation-generating-process-as-an-instrument" class="level3">
 <h3 class="anchored" data-anchor-id="ml-doesnt-treat-annotation-generating-process-as-an-instrument">ML doesn’t treat annotation generating process as an instrument</h3>
@@ -310,7 +321,41 @@ div.csl-indent {
 </section>
 <section id="ml-ignores-perspectives-of-annotators" class="level3">
 <h3 class="anchored" data-anchor-id="ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</h3>
-<p>cabitza</p>
+<p><span class="citation" data-cites="cabitza2023toward">Cabitza et al. (<a href="#ref-cabitza2023toward" role="doc-biblioref">2023</a>)</span>: whether the target of the annotation is a subjective phenomenon or not, disagreement is always irreducible. Yet ML typically assumes there is a single ‘ground truth’, and its best indicator is inter-annotator agreement. But taking the perspectives of the annotators into account, both in the data annotation but also the modelling phase of ML projects has recently been shown to benefit ML modelling in a number of contexts.</p>
+<p>weak perspectivist approach: taking perspectives into account while designing and collecting annotations, but ultimately reducing annotations to a single label or rating.</p>
+<p>strong perspectivist approach: taking perspectives into account for ground truthing and modelling phases.</p>
+<p>benefits of this approach:</p>
+<ul>
+<li><p>is congruent with the reality of collecting annotations</p></li>
+<li><p>includes the signal in the variance of labels or ratings</p></li>
+<li><p>avoids majority group perspective appearing to be ‘objective’</p></li>
+<li><p>allows for the modelling of human errors and variances</p></li>
+<li><p>allows for uncertain, fuzzy, or soft model development</p></li>
+<li><p>more complete report of the data generating process, as it also reports uncertainty</p></li>
+</ul>
+<p>downsides:</p>
+<ul>
+<li><p>multiple raters, and therefore costs/time/rater availability are issues</p></li>
+<li><p>need for perspectivist ML approaches</p></li>
+<li><p>validation becomes more challenging</p></li>
+</ul>
+<p>recommendations:</p>
+<ul>
+<li><p>complete labeling schemes, including ‘i don’t know’, ‘none of these’ etc. categories, and the ability to express issues with label set</p></li>
+<li><p>enough raters</p></li>
+<li><p>heterogenous raters</p></li>
+<li><p>adequate reporting:</p>
+<ul>
+<li><p>number of raters,</p></li>
+<li><p>rater expertise</p></li>
+<li><p>incentive</p></li>
+<li><p>instructions</p></li>
+<li><p>length of time for labelling</p></li>
+<li><p>inter rater agreement</p></li>
+<li><p>aggregation method</p></li>
+<li><p>confidence</p></li>
+</ul></li>
+</ul>
 </section>
 </section>
 </section>
@@ -405,6 +450,9 @@ Beck, J., Eckman, S., Chew, R., &amp; Kreuter, F. (2022). Improving labeling thr
 </div>
 <div id="ref-birhane2022values" class="csl-entry" role="listitem">
 Birhane, A., Kalluri, P., Card, D., Agnew, W., Dotan, R., &amp; Bao, M. (2022). The values encoded in machine learning research. <em>Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency</em>, 173–184.
+</div>
+<div id="ref-cabitza2023toward" class="csl-entry" role="listitem">
+Cabitza, F., Campagner, A., &amp; Basile, V. (2023). Toward a perspectivist turn in ground truthing for predictive computing. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, <em>37</em>, 6860–6868.
 </div>
 <div id="ref-geiger2021garbage" class="csl-entry" role="listitem">
 Geiger, R. S., Cope, D., Ip, J., Lotosh, M., Shah, A., Weng, J., &amp; Tang, R. (2021). " garbage in, garbage out" revisited: What do machine learning application papers report about human-labeled training data? <em>arXiv Preprint arXiv:2107.02278</em>.

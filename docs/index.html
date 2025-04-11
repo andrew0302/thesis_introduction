@@ -130,9 +130,15 @@ div.csl-indent {
   <li><a href="#mlai-relies-on-reference-data" id="toc-mlai-relies-on-reference-data" class="nav-link active" data-scroll-target="#mlai-relies-on-reference-data">ML/AI relies on reference data</a>
   <ul class="collapse">
   <li><a href="#ml-uses-human-annotations-very-often" id="toc-ml-uses-human-annotations-very-often" class="nav-link" data-scroll-target="#ml-uses-human-annotations-very-often">ML uses human annotations very often</a></li>
+  <li><a href="#issues-using-human-annotations-in-ml" id="toc-issues-using-human-annotations-in-ml" class="nav-link" data-scroll-target="#issues-using-human-annotations-in-ml">Issues using human annotations in ML</a>
+  <ul class="collapse">
   <li><a href="#human-annotations-arent-always-accurate" id="toc-human-annotations-arent-always-accurate" class="nav-link" data-scroll-target="#human-annotations-arent-always-accurate">Human annotations aren’t always accurate</a></li>
-  <li><a href="#sampling-and-measurement-biases-in-ml-research" id="toc-sampling-and-measurement-biases-in-ml-research" class="nav-link" data-scroll-target="#sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</a></li>
+  <li><a href="#inadequate-reporting" id="toc-inadequate-reporting" class="nav-link" data-scroll-target="#inadequate-reporting">Inadequate reporting</a></li>
+  <li><a href="#sampling-and-measurement-biases" id="toc-sampling-and-measurement-biases" class="nav-link" data-scroll-target="#sampling-and-measurement-biases">sampling and measurement biases</a></li>
+  <li><a href="#ml-treats-all-annotation-variance-as-noise-rather-than-signal" id="toc-ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="nav-link" data-scroll-target="#ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</a></li>
+  <li><a href="#ml-doesnt-treat-annotation-generating-process-as-an-instrument" id="toc-ml-doesnt-treat-annotation-generating-process-as-an-instrument" class="nav-link" data-scroll-target="#ml-doesnt-treat-annotation-generating-process-as-an-instrument">ML doesn’t treat annotation generating process as an instrument</a></li>
   <li><a href="#ml-ignores-perspectives-of-annotators" id="toc-ml-ignores-perspectives-of-annotators" class="nav-link" data-scroll-target="#ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#tools-from-social-science-can-help" id="toc-tools-from-social-science-can-help" class="nav-link" data-scroll-target="#tools-from-social-science-can-help">Tools from Social Science can help</a>
   <ul class="collapse">
@@ -179,8 +185,8 @@ div.csl-indent {
 <li>This method typically assumes that, for every piece of content being annotated, there is a single canonical truth</li>
 <li>quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations</li>
 </ul>
-<section id="ml-uses-human-annotations-very-often" class="level3">
-<h3 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h3>
+<section id="ml-uses-human-annotations-very-often" class="level2">
+<h2 class="anchored" data-anchor-id="ml-uses-human-annotations-very-often">ML uses human annotations very often</h2>
 <p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span></p>
 <ul>
 <li>200 randomly sampled ML papers from 3 domains:
@@ -192,9 +198,15 @@ div.csl-indent {
 <li>Out of 141 classification tasks, 103 (73.05%) used human labels</li>
 <li>Out of 103 human labels, 58 (56.31%) used only external labels</li>
 </ul>
-<p>i.e.&nbsp;ML re-uses external labels, and inadequately reports ‘ground truth’</p>
-<p>without details of ground truth, we cannot know what data generating process the resulting model represents <span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span>. [perhaps cat image parable here?]</p>
+<p>i.e.&nbsp;ML re-uses external labels</p>
 </section>
+<section id="issues-using-human-annotations-in-ml" class="level2">
+<h2 class="anchored" data-anchor-id="issues-using-human-annotations-in-ml">Issues using human annotations in ML</h2>
+<p>A number of works have shown issues with annotations in ML</p>
+<p><span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span> ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects.</p>
+<p>[geiger, first paper, show lack of reporting in ML textbooks on ground truthing]</p>
+<p>Works have also argued how human annotations would benefit from social science</p>
+<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect.</p>
 <section id="human-annotations-arent-always-accurate" class="level3">
 <h3 class="anchored" data-anchor-id="human-annotations-arent-always-accurate">Human annotations aren’t always accurate</h3>
 <p><span class="citation" data-cites="griffin2004perspectives">Griffin &amp; Brenner (<a href="#ref-griffin2004perspectives" role="doc-biblioref">2004</a>)</span> review errors and biases in human judgements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -211,9 +223,15 @@ div.csl-indent {
 <li>error model (psychometric model)</li>
 </ul>
 </section>
-<section id="sampling-and-measurement-biases-in-ml-research" class="level3">
-<h3 class="anchored" data-anchor-id="sampling-and-measurement-biases-in-ml-research">sampling and measurement biases in ML research</h3>
-<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects <span class="citation" data-cites="sambasivan2021everyone">Sambasivan et al. (<a href="#ref-sambasivan2021everyone" role="doc-biblioref">2021</a>)</span>.</p>
+<section id="inadequate-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="inadequate-reporting">Inadequate reporting</h3>
+<p><span class="citation" data-cites="geiger2021garbage">Geiger et al. (<a href="#ref-geiger2021garbage" role="doc-biblioref">2021</a>)</span> ML science studies inadequately report ‘ground truth’</p>
+<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span> thus we cannot know what data generating process the resulting model represents</p>
+<p>[perhaps cat image parable here?]</p>
+</section>
+<section id="sampling-and-measurement-biases" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-and-measurement-biases">sampling and measurement biases</h3>
+<p><span class="citation" data-cites="hullman2022worst">Hullman et al. (<a href="#ref-hullman2022worst" role="doc-biblioref">2022</a>)</span></p>
 <p>With regards to reference data:</p>
 <ul>
 <li>representation bias / non-representative samples</li>
@@ -224,8 +242,8 @@ div.csl-indent {
 </ul>
 <p>In other words, optimizing for predictive accuracy using very large datasets does not ‘absolve’ researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments.</p>
 </section>
-<section id="ml-ignores-perspectives-of-annotators" class="level3">
-<h3 class="anchored" data-anchor-id="ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</h3>
+<section id="ml-treats-all-annotation-variance-as-noise-rather-than-signal" class="level3">
+<h3 class="anchored" data-anchor-id="ml-treats-all-annotation-variance-as-noise-rather-than-signal">ML treats all annotation variance as noise rather than signal</h3>
 <p>Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn’t hold.</p>
 <p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span></p>
 <p>7 ‘myths’ of human annotation:</p>
@@ -243,16 +261,57 @@ div.csl-indent {
 <li>list examples from NLP where the disagreement from annotators is sensible</li>
 <li>they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false.</li>
 </ul>
-<p>While it can be indicative of annotation quality, e.g.&nbsp;the annotator is annotating incorrectly, in other cases disagreement indicates that the media being rated is ambiguous.</p>
-<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion</p>
-<ul>
-<li>show work on an intuitively perspective-based use-case: hate speech</li>
-</ul>
+<p>for myth 6: disagreement indicates that the media being rated is ambiguous.</p>
+<section id="annotations-aim-to-measure-a-latent-variable" class="level4">
+<h4 class="anchored" data-anchor-id="annotations-aim-to-measure-a-latent-variable">annotations aim to measure a latent variable</h4>
+<p><span class="citation" data-cites="jacobs2021measurement">Jacobs &amp; Wallach (<a href="#ref-jacobs2021measurement" role="doc-biblioref">2021</a>)</span> there is a ‘measurement error model’ (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations</p>
+<p>although focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even ‘representational measurements’ like height, are essentially a latent variable</p>
 <p><span class="citation" data-cites="aroyo2015truth">Aroyo &amp; Welty (<a href="#ref-aroyo2015truth" role="doc-biblioref">2015</a>)</span> operationalize ‘crowd truth’ with an illustration where the ‘gold standard’ is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.</p>
 <ul>
 <li>i.e.&nbsp;the label isn’t represented as ‘present’ or ‘not present’, but as a probablility</li>
 <li>thus the ‘crowd truth’ attempts to capture the ‘range of reasonable interpretations’</li>
 </ul>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span>: we should expect more variance to the degree that tasks measure opinion show work on an intuitively perspective-based use-case: hate speech</p>
+</section>
+</section>
+<section id="ml-doesnt-treat-annotation-generating-process-as-an-instrument" class="level3">
+<h3 class="anchored" data-anchor-id="ml-doesnt-treat-annotation-generating-process-as-an-instrument">ML doesn’t treat annotation generating process as an instrument</h3>
+<p><span class="citation" data-cites="beck2022improving">Beck et al. (<a href="#ref-beck2022improving" role="doc-biblioref">2022</a>)</span></p>
+<ul>
+<li>annotation collection requires design thinking
+<ul>
+<li>Task Structure: specific wording and response options, including debates over the inclusion of “I don’t Know” option</li>
+<li>Order Effects: specific judgements are affected by previous perceptions</li>
+<li>Annotator Effects: backgrounds, opinions, experiences of respondents affect responses</li>
+</ul></li>
+</ul>
+<p><span class="citation" data-cites="jacobs2021measurement">Jacobs &amp; Wallach (<a href="#ref-jacobs2021measurement" role="doc-biblioref">2021</a>)</span></p>
+<ul>
+<li>reliability: do similar inputs to a measurement model present similar outputs?</li>
+</ul>
+<p>test-retest: are measurements of an unobservable latent construct taken at different times via a measurement model similar, assuming the construct hasn’t changed?</p>
+<ul>
+<li>validity: is it ‘right’?</li>
+</ul>
+<p>no single test for validity on purpose, because it requires thinking. do our measurements:</p>
+<ul>
+<li>face validity: look plausible/ sensible?</li>
+<li>content validity: capture the construct?
+<ul>
+<li>structural validity: show the inter-correlations we expect?</li>
+<li>substantive validity: capture only observable properties thought to be related to the construct?</li>
+</ul></li>
+<li>convergent validity: show correlations with other validated methods?</li>
+<li>discriminant validity: show correlations with other construct/properties thought not to be related to the construct?</li>
+<li>predictive validity: show correlations with constructs/properties thought to be related, but not in the operationalization?</li>
+<li>hypothesis validity: shed light on relevant hypotheses about the construct being measured?</li>
+<li>consequential validity: allow for the consequences obtained from the measurement model to be assessed?</li>
+</ul>
+</section>
+<section id="ml-ignores-perspectives-of-annotators" class="level3">
+<h3 class="anchored" data-anchor-id="ml-ignores-perspectives-of-annotators">ML ignores perspectives of annotators</h3>
+<p>cabitza</p>
+</section>
 </section>
 </section>
 <section id="tools-from-social-science-can-help" class="level1">
@@ -358,6 +417,9 @@ Groves, R. M., Fowler Jr, F. J., Couper, M. P., Lepkowski, J. M., Singer, E., &a
 </div>
 <div id="ref-hullman2022worst" class="csl-entry" role="listitem">
 Hullman, J., Kapoor, S., Nanayakkara, P., Gelman, A., &amp; Narayanan, A. (2022). The worst of both worlds: A comparative analysis of errors in learning from data in psychology and machine learning. <em>Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society</em>, 335–348.
+</div>
+<div id="ref-jacobs2021measurement" class="csl-entry" role="listitem">
+Jacobs, A. Z., &amp; Wallach, H. (2021). Measurement and fairness. <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, 375–385.
 </div>
 <div id="ref-koutsoumpis2024beyond" class="csl-entry" role="listitem">
 Koutsoumpis, A., Ghassemi, S., Oostrom, J. K., Holtrop, D., Breda, W. van, Zhang, T., &amp; Vries, R. E. de. (2024). Beyond traditional interviews: Psychometric analysis of asynchronous video interviews for personality and interview performance evaluation using machine learning. <em>Computers in Human Behavior</em>, <em>154</em>, 108128.

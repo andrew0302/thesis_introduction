@@ -15,7 +15,7 @@ bibliography: references.bib
 * quality of annotations is assessed using inter-annotator agreement, where more agreement = better annotations
 
 
-### ML uses human annotations very often
+## ML uses human annotations very often
 
 @geiger2021garbage 
 
@@ -27,11 +27,20 @@ bibliography: references.bib
 * Out of 141 classification tasks, 103 (73.05%) used human labels
 * Out of 103 human labels, 58 (56.31%) used only external labels
 
-i.e. ML re-uses external labels, and inadequately reports 'ground truth'
+i.e. ML re-uses external labels
 
-without details of ground truth, we cannot know what data generating process the resulting model represents @hullman2022worst. 
-[perhaps cat image parable here?]
 
+## Issues using human annotations in ML
+
+A number of works have shown issues with annotations in ML 
+
+@sambasivan2021everyone ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects.
+
+[geiger, first paper, show lack of reporting in ML textbooks on ground truthing]
+
+Works have also argued how human annotations would benefit from social science 
+
+@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. 
 
 ### Human annotations aren't always accurate
 
@@ -50,9 +59,18 @@ also reviews possible reasons:
 * ecological probability
 * error model (psychometric model)
 
-### sampling and measurement biases in ML research
+### Inadequate reporting
 
-@hullman2022worst compare claims that ML is facing a reproducibility crisis to the crisis in psychology. Among the issues they note relate to benchmark datasets, which researchers often re-use as they publish on standardized benchmarks, and because they are cost prohibitive to collect. It may also be the case that ML researchers broadly prefer to work on building and evaluating performance, rather than executing ground-truthing projects @sambasivan2021everyone.
+@geiger2021garbage  ML science studies inadequately report 'ground truth' 
+
+@hullman2022worst thus we cannot know what data generating process the resulting model represents 
+
+[perhaps cat image parable here?]
+
+
+### sampling and measurement biases
+
+@hullman2022worst
 
 With regards to reference data:
 
@@ -65,7 +83,7 @@ With regards to reference data:
 In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. They note benefits that both machine learning and psychology could gain by borrowing methods from each other, but note the danger if these are misused. For the benefit of machine learning, there are lessons to be learned from social science, and the replication crisis. Among them are 1) collecting samples whose test/evaluation set distributions are drawn from the same deployment distribution, and 2) using valid measurement instruments. 
 
 
-### ML ignores perspectives of annotators
+### ML treats all annotation variance as noise rather than signal
 
 Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn't hold. 
 
@@ -86,16 +104,56 @@ For myths 1 and 2:
 * list examples from NLP where the disagreement from annotators is sensible
 * they argue that the assumptions of a single ground truth, and that disagreement is indicative of poor annotations are both false. 
 
-While it can be indicative of annotation quality, e.g. the annotator is annotating incorrectly, in other cases disagreement indicates that the media being rated is ambiguous. 
+for myth 6: disagreement indicates that the media being rated is ambiguous. 
 
-@beck2022improving: we should expect more variance to the degree that tasks measure opinion
+#### annotations aim to measure a latent variable
 
-* show work on an intuitively perspective-based use-case: hate speech
+@jacobs2021measurement there is a 'measurement error model' (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations 
+
+although focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even 'representational measurements' like height, are essentially a latent variable
 
 @aroyo2015truth operationalize 'crowd truth' with an illustration where the 'gold standard' is the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element.
 
 * i.e. the label isn't represented as 'present' or 'not present', but as a probablility
 * thus the 'crowd truth' attempts to capture the 'range of reasonable interpretations'
+
+@beck2022improving: we should expect more variance to the degree that tasks measure opinion
+show work on an intuitively perspective-based use-case: hate speech
+
+### ML doesn't treat annotation generating process as an instrument
+
+@beck2022improving 
+
+* annotation collection requires design thinking
+  * Task Structure: specific wording and response options, including debates over the inclusion of "I don't Know" option
+  * Order Effects: specific judgements are affected by previous perceptions
+  * Annotator Effects: backgrounds, opinions, experiences of respondents affect responses
+
+@jacobs2021measurement
+
+* reliability: do similar inputs to a measurement model present similar outputs?
+
+test-retest: are measurements of an unobservable latent construct taken at different times via a measurement model similar, assuming the construct hasn't changed?
+
+* validity: is it 'right'?
+
+no single test for validity on purpose, because it requires thinking.
+do our measurements:
+
+* face validity: look plausible/ sensible?
+* content validity: capture the construct?
+  * structural validity: show the inter-correlations we expect?
+  * substantive validity: capture only observable properties thought to be related to the construct?
+* convergent validity: show correlations with other validated methods?
+* discriminant validity: show correlations with other construct/properties thought not to be related to the construct?
+* predictive validity: show correlations with constructs/properties thought to be related, but not in the operationalization?
+* hypothesis validity: shed light on relevant hypotheses about the construct being measured?
+* consequential validity: allow for the consequences obtained from the measurement model to be assessed?
+
+
+### ML ignores perspectives of annotators
+
+cabitza
 
 # Tools from Social Science can help
 

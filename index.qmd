@@ -8,193 +8,105 @@ editor:
 
 # Introduction
 
-AI systems run on data. Data are used to 'train' models - imperfect,
-simplified mathematical or computational representations of a phenomenon
-or process in the real world [^1]. Where an AI system is a complete
-application with integrated components e.g. an interface, programmatic
-logic, and one or more models aimed at performing tasks typically
-requiring human intelligence, the models themselves are embedded
-components that take inputs (e.g. media like text, images, audio, or
-data) and produce outputs (e.g. classifications, predictions or some
-form of decision). The behavior of models, i.e. how they respond to a
-given input, is determined by their parameters - internal settings or
-values. Algorithms - step by step instructions, executed in order - are
-used to estimate model parameters from the 'training' data. As models
-used in AI systems are designed to perform tasks, their performance is
-evaluated empirically by comparing their outputs to a reference. This
-reference is often a second form of data, referred to as the 'ground
-truth', 'gold standard', or simply 'annotations', which represents the
-ideal output of the system.
+AI systems run on data. Data are used to 'train' *models* - imperfect, simplified mathematical or computational representations of a phenomenon or process in the real world [^1]. Where an AI system is a complete application with integrated components e.g. an interface, programmatic logic, and one or more models aimed at performing tasks typically requiring human intelligence[^4], the models themselves are embedded components that take inputs (e.g. media like text, images, audio, or data) and produce outputs (e.g. classifications, predictions or some form of decision). Model *behavior* - the model's output or response to a given input - is determined by their *parameters* - internal settings or values[^5]. *Algorithms* - step by step instructions, executed in order[^6] - are used to estimate model parameters from the 'training' data. As models used in AI systems are designed to perform tasks, their performance is often evaluated empirically by comparing their outputs to a reference. This reference is often a second form of data, referred to as the 'ground truth' or 'gold standard', which represents the ideal expected output of the system.
 
 [^1]: https://en.wikipedia.org/wiki/Scientific_modelling
+[^4]: https://en.wikipedia.org/wiki/Artificial_intelligence
+[^5]: https://en.wikipedia.org/wiki/Statistical_parameter
+[^6]: https://en.wikipedia.org/wiki/Algorithm
 
-Training data may be tabular data, but is often a form of media - text, audio, images, or video -
-whereas reference data very often contains aggregated input from humans.
-This implies that a phenomenon of interest is set as a target, and human
-judges are given a task that produces data relevant to the target from their input. Commonscenarios include human judges annotating, labeling, or rating a) individual pieces of content of the same form as the training data, or
-b) generated system outputs. Multiple ratings per piece of content are
-collected and usually aggregated, forming a singular 'ground truth' for
-the aspect of the content being labelled or rated. Thus, it is assumed that there is a singular canonical truth for each
-aspect / content pair, comprised of aggregated human responses, which
-forms a target to which we align our automated systems.
+Data sets designed for training, reference or both, are often re-used likely due to the relative ease of access compared to the effort and cost required to design, collect, and evaluate datasets. Training data may be tabular data, but is often a form of media - text, audio, images, or video, whereas reference data often contains aggregated input from humans [@geiger2021garbage; @geiger2020garbage; @sav2023annotation; @muller2021designing]. This input may be collected explicitly - where a phenomenon of interest is set as a target, and human judges are given a task that produces data relevant to the target from their input. Common scenarios include human judges annotating, labeling, or rating a) individual pieces of content of the same form as the training data, or b) generated system outputs for the presence/absence, or degree of the phenomenon of interest. Data may also be collected implicitly - where digital traces of human behavior, e.g. media consumption, form the target [@sav2023annotation]. 
 
-Whether used as part of the development of an AI system, or to evaluate
-it, the quality of these two forms of data determines the quality of the
-system. As parameters are estimated from the training data, such that
-observable patterns recognized in the data affect internal model values
-or settings, imperfections, inaccuracies, biases etc. in the data are
-reflected in the parameters of the resulting model. As models are
-evaluated by comparing their outputs to reference data, such that
-'better' models are those whose outputs most closely resemble the
-reference data, imperfections in the reference are reflected in the
-models preferred. Thus, the quality of the data used for training and
-reference represents the upper boundary of potential performance of AI
-systems when deployed: the best possible performance directly
-corresponds to the degree to which training and reference data represent
-the phenomenon of interest to the system when deployed.
+Whether used as part of the development of an AI system, or to evaluate it, the quality of these two forms of data determines the quality of the system. As parameters are estimated from the training data, such that observable patterns recognized in the data affect internal model values or settings, imperfections, inaccuracies, biases etc. in the data are reflected in the parameters of the resulting model. As models are evaluated by comparing their outputs to reference data, such that 'better' models are those whose outputs most closely resemble the reference data [@birhane2022values], imperfections in the reference are reflected in the models preferred. Thus, the quality of the data used for training and reference represents the upper boundary of potential performance of AI systems when deployed: the best possible performance directly corresponds to the degree to which training and reference data represent the phenomenon of interest in the environment to which it is deployed.
 
-# The Data Work is Design Work
+An implication of the relationship between dataset quality and the resulting system, is that the evaluation of an AI system is a measurement problem, as is the measurement of the phenomenon of interest in the media via the human input being collected [@welty2019metrology]. To appropriately evaluate a system designed to do a task, in the data to be used for evaluation and possibly also for training, both the pieces of media and the distribution of the phenomenon of interest must resemble those of the environment in which systems are to be deployed [@hullman2022worst]. This is a challenge, as the true values of these is unknowable and must be estimated using appropriate measurement methods [@welty2019metrology]. Crucially and often ignored in Machine Learning, the resulting inputs from humans must also show qualities fitting of good measurements [@welty2019metrology; @jacobs2021measurement], and account for the possibility of a range of reasonable interpretations [@aroyo2015truth; @cabitza2023toward]. 
 
-Although far more emphasis is placed on whether models achieve state of
-the art 'performance' or efficiency [@birhane2022values], scholars over
-the past decade have attempted to draw attention to a lack of
-sophistication in how training and reference data are selected and
-evaluated. It has been argued that a focus on improving the data, will
-result in bigger gains than a focus on improving the model[^2]. Further, simply collecting a large data set can not compensate for the shortcomings in data set quality [@hullman2022worst]. 
+The social sciences have developed sampling methods to represent populations [@groves2009survey], and syntheses that introduce knowledge from survey science [@beck2022improving], metrology[@welty2019metrology], psychometrics[@jacobs2021measurement], and the perspective approach to ground-truthing[@cabitza2023toward] have been published. Yet, knowledge from these fields has broadly not been applied in the field of Machine Learning, leading to issues of representation and measurement[@hullman2022worst]. 
 
-Best practices, considerations, and frameworks from the social sciences could inform designs, but have yet to be broadly applied in the computational sciences [@beck2022improving;
-@jacobs2021measurement]. One reason for this gap may be ML researchers prefer to work on building systems and evaluating their performance
-rather than researching, designing and executing ground-truthing projects
-[@sambasivan2021everyone]. Another may be a lack of focus on these
-topics in textbooks, and thus in education more broadly (first geiger
-paper I think). A third may be that the social and computational
-sciences have conceptually different focci: the computational sciences
-focus on the statistical model the system with substantially less
-emphasis on the content, whereas the social sciences treat the
-statistical model as a means to better understanding the relationships
-in the content [@liem2018psychology]. Psychology research thus contains many more research projects in which datasets are collected using responses from people, whereas datasets tend to be re-used extensively in machine learning work [@geiger2021garbage]. A further more practical
-complication is that work on these topics and potential solutions lacks
-a central academic 'home': where psychology and economics have
-psychometrics and econometrics respectively, and where software
-engineering has software testing, the study of ground-truthing lacks a
-central banner under which academic work can accumulate and disseminate.
-
-[^2]: https://www.youtube.com/watch?v=06-AZXmwHjo
-
-Commonly observed shortcomings include 1) representational biases in the content sampled for inclusion in training/evaluation datasets [@hullman2022worst], 2) measurement biases in the annotations collected [@jacobs2021measurement; @hullman2022worst;@beck2022improving], 3) a fallacious assumption of a single canonical 'ground-truth' [@aroyo2015truth; @cabitza2023toward], and 4) poor reporting of necessary information regarding the annotation-collection process [@hullman2022worst; @geiger2021garbage]. An additional consideration that receives little attention is the number
-of annotations to gather, where fields that focus on gathering data from
-humans also have a strong emphasis on *a-priori* decisions to mitigate bias, such as the pre-registration of calculated of target
-sample sizes. These considerations are absent in computational fields
-which appear to favor differing rules of thumb: e.g. in a well-cited
-textbook, @PustejovskyStubbsNLannotation suggest to “have your corpus
-annotated by at least two people (more is preferable, but not always
-practical)”, whereas @artstein2008inter suggest that "measuring
-reliability with only two coders is seldom enough, except for
-small-scale studies". 
-
-Decisions such as the selection of items for training data [@hullman2022worst], and the collection of human responses for reference data [@beck2022improving], are part of a design of a process that results in data. On the one hand, corpora tend to be very large, and resources are finite. On the other hand, rules of thumb lack clear substantiation in light of the both 1) the phenomenon being grounded and 2) the ambiguity of the media in which it is grounded. In other words, more variance is expected in annotation targets to the degree they are subjective or based on opinion [@beck2022improving], and more variance is expected in content to the degree to which it is ambiguous - i.e. can be interpreted in multiple ways - such as figurative language [@sandri2023don]. Further some degree of variance will always be present when there are multiple annotations or ratings for a given piece of media independent of the target [@cabitza], based on the range of reasonable interpretations of that target in that media [@arroyo].
 
 
 ## Present Work
-Although works have been published that take the aforementioned
 
-This thesis incorporates techniques and considerations from the social sciences to address the aforementioned shortcomings
+Present work attempts to demonstrate the potential of synthesizing knowledge from the social sciences related to sampling and measurement with extant work on data sets for use in machine learning. Building on prior work reviewed herein, its main contribution is a case study investigation, spanning several manuscripts, of a complex evaluation data set creation problem. A secondary contribution is a synthesized framework that can be used to ground challenging phenomena in various media, following principles from prior work. A third contribution, is knowledge directly applicable to the grounding of personal values in text, such as our adapted questionnaire, and statistics of interest for planning and estimating the costs associated with such ground-truthing projects. A final contribution is immediately applicable results that work towards estimating personal values in song lyrics using language models. 
 
-showcases a design for a challenging ground-truthing project, in terms of the complexity of the phenomenon of interest, ambiguity in the media that selected and annotated. It incorporates design choices to address the aforementioned shortcomings into a singular framework, guided by best practices in the social sciences, which it then extends. It focuses unambiguously on the aspect most relevant to the 
+Included in this thesis are two manuscripts that further motivate the case study: 1) the first reviews strengths and weaknesses of datasets used in the field of Recommender Systems, 2) the second reviews poor practices in Signal Processing related to datasets whose interconnections were poorly reported, misleading results. The case study demonstrates the use of principles from the Social Sciences to solve problems of representation and measurement across 4 manuscripts: personal values in song lyrics. In a 5th manuscript, the same principles are applied to a second form of text, political speeches, expected to vary in terms of use of ambiguous language. Despite the moderate success in automatically estimating values in lyrics, this work demonstrates a failure with speeches. It includes recommendations for analyses to observe the potential for success or failure, and to estimate cost via less expensive pilot studies. This thesis follows the case study with work that 6) highlights the potential for shortcomings in the interpretation of AI system evaluations should a more epistemologically sophisticated framework for evaluation not be adopted, and 7) highlights an important component of scientific infrastructure needed for rigorous work on data sets for Machine Learning: the treatment of scientific work as open-source artifacts. 
 
+# Background
+ 
+## Reference data comes from humans
 
-Specifically:
+AI runs on data generated by humans. Reference data often uses responses from humans in the form of responses called labels or annotations. "[D]ata annotation is the practice of labeling a set of digital representations of objects" [@cabitza2023toward]. Although Few studies have systematically examined the frequency of use of data from humans, those that have observed that almost all reference data includes human input either explicitly or implicitly. @geiger2021garbage systematically review 200 randomly sampled papers from 3 broad domains, Social Sciences & Humanities, Life & Biomedical Sciences and Physical & Environmental Sciences. Out of the 140 studies that were classification tasks, 73.05% (or 103 papers) used labels derived from human responses as the reference. @geiger2020garbage reviewed 164 papers whose classifiers were trained on Twitter data and observed that 65% of the works reviewed used human annotations for the purposes of training. They further note that this quantity did not include human annotations used for validation, or other meta-data e.g. hashtags contributed by humans. In some domains the contribution of humans is in the form of digital traces, as in the domain of Recommender Systems where it was observed that, out of the most highly cited papers between 2018 and 2022, 86% of the datasets used were transaction data released by vendors such as Amazon or Yelp [@sav2023annotation]. Whether human input is explicit or implicit, it is present in almost all reference data. 
 
--   We attempt to mitigate representation biases in the content we
-    select for annotation by using a stratified sampling strategy.
--   We attempt to mitigate measurement biases by treating the target
-    measurement as a latent variable, and the survey we used to gather
-    annotations as an instrument. We build on work that validated a
-    questionnaire for measuring constructs, and estimating its
-    reliability and structural validity when used for annotations.
--   We account for the potential of multiple perspectives in our dataset
-    by recruiting participants from relevant subgroups in a single
-    target population.
--   We report the details of the annotation collection process, and
-    share the disaggregated dataset of the annotations
--   We further show how to estimate the number of annotators\
+Furthermore, training/reference data sets are often re-used. @geiger2021garbage observed that 56.31% of the classification tasks that were reviewed (or 58 papers) used only 'external' human labels, i.e. labels that were not collected specifically for the work in the paper, @geiger2020garbage observed that 33.3% of the papers used external annotations, and @sav2023annotation observed that just 4 datasets appeared in at least 10% of works reviewed, with the most commonly used dataset appearing in 33% of the works reviewed. Examining the most highly cited papers in IEEE CVPR from 2020-2022, the initial papers announcing the benchmark, along with the training and reference data received citation counts in the tens of thousands: Imagenet [@deng2009imagenet] shows over 52k citations, COCO [@lin2014microsoft] shows over 29k, Pascal VOC [@everingham2010pascal] shows over 15k,  according to SCOPUS as of April 2025. Thus, these human input datasets have the potential for massive impact. 
 
-We demonstrate the potential of this framework by grounding a complex
-phenomenon (a 10-dimensional construct, Personal Values) in ambiguous
-text (song lyrics). We further show an
+Although far more emphasis is placed on whether models achieve state of the art 'performance' or efficiency [@birhane2022values], scholars over the past decade have attempted to draw attention to a lack of sophistication in how training and reference data are selected and evaluated [@aroyo2015truth]. It has been argued that a focus on improving the data for a given task, will result in bigger gains than a focus on improving model[^2]. Importantly, @hullman2022worst show that shortcomings in reference/training data cannot be compensated for by the size of the dataset overall, a situation exacerbated by the often re-use of data sets. A solution rather entails acknowledging that, whether deliberate or not, informed or not, organized or improvised, data are collected by design [@muller2021designing].
 
-When sampling content to include in training/test datasets, samples for
-the training/test sets will ideally be drawn from the same distribution
-as the content in which they will eventually be deployed.
-*Representation bias* in content selected for training and/or evaluation
-datasets refers to the degree to which relevant distributions in data
-used to train and/or evaluate systems resembles the distribution in the
-environment to which it will be deployed [@hullman2022worst].
+[^2]: https://www.youtube.com/watch?v=06-AZXmwHjo
 
-Measurement bias in the annotations collected from humans may also bias
+## Shortcomings of reference data design
 
-Perspectivism
+Considering the ever-presence of human influence on the reference data, best practices, considerations, and frameworks from the social sciences could inform designs, but have yet to be broadly applied in the computational sciences [@beck2022improving; @jacobs2021measurement]. One reason for this gap may be ML researchers prefer to work on building systems and evaluating their performance rather than researching, designing and executing ground-truthing projects [@sambasivan2021everyone; @muller2021designing]. Another may be a lack of focus on these topics in textbooks, and thus in education more broadly [@geiger2020garbage]. A third may be that the social and computational sciences have conceptually different focci: the computational sciences focus on the statistical model the system with substantially less emphasis on the content, whereas the social sciences treat the statistical model as a means to better understanding the relationships in the content [@liem2018psychology]. Psychology research thus contains many more research projects in which datasets are collected using responses from people, whereas datasets tend to be re-used extensively in machine learning work [@geiger2021garbage]. A further more practical complication is that work on these topics and potential solutions lacks a central academic 'home': where psychology and economics have psychometrics and econometrics respectively, and where software engineering has software testing, the study of ground-truthing lacks a central banner under which academic work can accumulate and disseminate.
 
-Reporting
+Commonly observed shortcomings include 1) representational biases in the content sampled for inclusion in training/evaluation datasets [@hullman2022worst], 2) measurement biases in the annotations collected [@jacobs2021measurement; @hullman2022worst; @beck2022improving], 3) a fallacious assumption of a single canonical 'ground-truth' [@aroyo2015truth; @cabitza2023toward], and 4) poor reporting of necessary information regarding the annotation-collection process [@hullman2022worst; @geiger2021garbage]. An additional consideration that receives little attention is the number of annotations to gather, where fields that focus on gathering data from humans also have a strong emphasis on *a-priori* decisions to mitigate bias, such as the pre-registration of calculated of target sample sizes estimated via statistical power analysis [@cohen1992statistical]. These considerations are absent in computational fields which appear to favor differing rules of thumb: e.g. in a well-cited textbook, @PustejovskyStubbsNLannotation suggest to “have your corpus annotated by at least two people (more is preferable, but not always practical)”, whereas @artstein2008inter suggest that "measuring reliability with only two coders is seldom enough, except for small-scale studies".
 
-We add: a priori rating number estimation
+Decisions such as the selection of items for training data [@hullman2022worst], and the collection of human responses for reference data [@beck2022improving], are part of a design of a process that results in data. On the one hand, corpora tend to be very large, and resources are finite making cost a primary factor in design decisions [@muller2021designing].  On the other hand, rules of thumb lack clear substantiation in light of the both 1) the phenomenon being grounded and 2) the ambiguity of the media in which it is grounded. In other words, more variance is expected in annotation targets to the degree they are subjective or based on opinion [@beck2022improving], and more variance is expected in content to the degree to which it is ambiguous - i.e. can be interpreted in multiple ways - such as figurative language [@sandri2023don]. Further, some degree of variance will always be present when there are multiple annotations or ratings for a given piece of media independent of the target [@cabitza], based on the range of reasonable interpretations of that target in that media [@arroyo].
 
-And although imperfect as leaderboard scores can be gamed, and do not
-perfectly represent the deployment environment, the typical leaderboard
-approach has shown evidence that progress can be made towards a target.
-This thesis thus represents an attempt to define the target better.
+## A tale of two studies: the case of personnel selection
 
-# ML/AI relies on reference data from human annotations
+@ponce2016chalearn
 
-@aroyo2015truth
+-   efficient way to gather media and annotation data
+-   BUT no validation of instrument, or ecologically valid media data
+-   distribution of training /eval data don't come from the target
+    distribution
 
--   In order to evaluate ML / AI systems, we compare the output of these
-    systems to reference data.
--   One method for creating reference data is the collection of human
-    annotations.
--   This method typically assumes that, for every piece of content being
-    annotated, there is a single canonical truth
--   quality of annotations is assessed using inter-annotator agreement,
-    where more agreement = better annotations
+![](images/Ponce_Lopez_2016_figure_2.png) Figure 2: @ponce2016chalearn
 
-@cabitza2023toward: "data annotation is the practice of labeling a set
-of digital representations of objects."
+Compared to @koutsoumpis2024beyond:
 
-according to Muller et al., 2012 it has three components
+-   ecological validity: media data was mock asynchronous video
+    interviews
+-   ecological validity: interview questions designed to activate
+    personality facets
+-   personality instruments: validated HEXACO scale
+-   perspectives: self & observer ratings
 
--   data collection: the labeling scheme
--   data annotation: the actual labeling by experts or crowd workers
--   data aggregation: producing a single or a single set of labels from
-    the multiple labels collected
+### Human judgments are imperfect
 
-@geiger2021garbage: ML uses human annotations very often
+@griffin2004perspectives review errors and biases in human
+judgements[^3]
 
--   200 randomly sampled ML papers from 3 domains:
-    -   Social Sciences & Humanities
-    -   Life & Biomedical Sciences
-    -   Physical & Environmental Sciences
--   Out of 141 classification tasks, 103 (73.05%) used human labels
--   Out of 103 human labels, 58 (56.31%) used only external labels
+[^3]: @griffin2004perspectives note that much of this work was about
+    people guessing knowledge from an almanac, and then guessing how
+    accurate they were
 
-i.e. ML re-uses external labels
+@griffin2004perspectives review errors and biases in human
+judgements[^3]
 
-## Issues using human annotations in ML
+[^3]: @griffin2004perspectives note that much of this work was about
+    people guessing knowledge from an almanac, and then guessing how
+    accurate they were
 
-A number of works have shown issues with annotations in ML
+-   over/under prediction: confidence score is higher/lower than
+    accuracy
+-   over/under extremity: confidence is more extreme at ends
 
-@hullman2022worst compare claims that ML is facing a reproducibility
-crisis to the crisis in psychology. Among the issues they note relate to
-benchmark datasets, which researchers often re-use as they publish on
-standardized benchmarks, and because they are cost prohibitive to
-collect.
+also reviews possible reasons:
 
-Another may be that the skills are not being taught: \[geiger, first
-paper, show lack of reporting in ML textbooks on ground truthing\]
-
-A number of papers have drawn from the social sciences to synthesize
-knowledge on how best to gather annotations.
+-   optimistic overconfidence
+-   confirmation bias
+-   case-based judgment
+-   ecological probability
+-   error model (psychometric model)
 
 ### ML treats all annotation variance as noise rather than signal
+
+Often multiple ratings per piece of content are collected and
+aggregated, forming a singular 'ground truth' for the aspect of the
+content being labelled or rated. Thus, it is assumed that there is a
+singular canonical truth for each aspect / content pair, comprised of
+aggregated human responses, which forms a target to which we align our
+automated systems.
 
 disagreement is common
 
@@ -210,6 +122,17 @@ disagreement is often removed
 Beyond errors in judgment are questions about the target for the
 annotations. For at least some phenomena, the assumption that there is a
 single ground-truth to approximate with annotations doesn't hold.
+
+@aroyo2015truth
+
+-   In order to evaluate ML / AI systems, we compare the output of these
+    systems to reference data.
+-   One method for creating reference data is the collection of human
+    annotations.
+-   This method typically assumes that, for every piece of content being
+    annotated, there is a single canonical truth
+-   quality of annotations is assessed using inter-annotator agreement,
+    where more agreement = better annotations
 
 @aroyo2015truth
 
@@ -233,51 +156,9 @@ For myths 1 and 2:
 for myth 6: disagreement indicates that the media being rated is
 ambiguous.
 
-#### annotations aim to measure a latent variable
 
-@jacobs2021measurement there is a 'measurement error model' (taken from
-econ) that links the unobservable latent variable, and observable
-properties. in annotations this is via individual observations
 
-although paper focuses on attempts at measuring constructs (risk of
-recidivism, teacher effectiveness, patient benefit) they also show that
-even 'representational measurements' like height, are essentially a
-latent variable
 
-@aroyo2015truth operationalize 'crowd truth' with an illustration where
-the 'gold standard' is the probability that a sentence contains an
-element, based on the probability that an annotator annotated that
-sentence with that element.
-
--   i.e. the label isn't represented as 'present' or 'not present', but
-    as a probablility
--   thus the 'crowd truth' attempts to capture the 'range of reasonable
-    interpretations'
-
-@beck2022improving: we should expect more variance to the degree that
-tasks measure opinion show work on an intuitively perspective-based
-use-case: hate speech
-
-### Human annotations aren't always accurate
-
-@griffin2004perspectives review errors and biases in human
-judgements[^3]
-
-[^3]: @griffin2004perspectives note that much of this work was about
-    people guessing knowledge from an almanac, and then guessing how
-    accurate they were
-
--   over/under prediction: confidence score is higher/lower than
-    accuracy
--   over/under extremity: confidence is more extreme at ends
-
-also reviews possible reasons:
-
--   optimistic overconfidence
--   confirmation bias
--   case-based judgment
--   ecological probability
--   error model (psychometric model)
 
 ### Inadequate reporting
 
@@ -287,6 +168,8 @@ also reviews possible reasons:
 resulting model represents
 
 \[perhaps cat image parable here?\]
+
+An investigation of 15 data science workers, @muller2021designing observed common phases, which include determining the annotation scheme - all possible labels that can be attributed to digital representations of objects along with any relevant guidelines, the actual process of collecting labels, and the process by which the annotations are then aggregated into a single label. They note the difficulty of this work: issues in the annotation schemes are often discovered as annotation projects progress, requiring varying degrees of improvised adjustment. 
 
 ### sampling and measurement biases
 
@@ -434,7 +317,7 @@ learned, and aims instead at predictors that will within estimable error
 bounds @hullman2022worst. This is problematic as this kind of
 optimization doesn't resemble real world deployment.
 
-### Social and computational sciences have different focci
+Social and computational sciences have different focci
 
 social sciences:
 
@@ -446,6 +329,31 @@ computational sciences:
 -   learning procedure f(x)
 
 ![](images/Liem_2018_figure_1.png) Fig. 1: @liem2018psychology
+
+### annotations aim to measure a latent variable
+
+@jacobs2021measurement there is a 'measurement error model' (taken from
+econ) that links the unobservable latent variable, and observable
+properties. in annotations this is via individual observations
+
+although paper focuses on attempts at measuring constructs (risk of
+recidivism, teacher effectiveness, patient benefit) they also show that
+even 'representational measurements' like height, are essentially a
+latent variable
+
+@aroyo2015truth operationalize 'crowd truth' with an illustration where
+the 'gold standard' is the probability that a sentence contains an
+element, based on the probability that an annotator annotated that
+sentence with that element.
+
+-   i.e. the label isn't represented as 'present' or 'not present', but
+    as a probablility
+-   thus the 'crowd truth' attempts to capture the 'range of reasonable
+    interpretations'
+
+@beck2022improving: we should expect more variance to the degree that
+tasks measure opinion show work on an intuitively perspective-based
+use-case: hate speech
 
 ### Issues with sampling
 
@@ -479,25 +387,7 @@ solutions:
 
 \[another ref that describes the target as a latent variable\]
 
-### A tale of two studies: the case of personnel selection
 
-@ponce2016chalearn
-
--   efficient way to gather media and annotation data
--   BUT no validation of instrument, or ecologically valid media data
--   distribution of training /eval data don't come from the target
-    distribution
-
-![](images/Ponce_Lopez_2016_figure_2.png) Figure 2: @ponce2016chalearn
-
-Compared to @koutsoumpis2024beyond:
-
--   ecological validity: media data was mock asynchronous video
-    interviews
--   ecological validity: interview questions designed to activate
-    personality facets
--   personality instruments: validated HEXACO scale
--   perspectives: self & observer ratings
 
 # Present Work
 
@@ -515,5 +405,58 @@ attempt to further the field in the following ways:
 
 case study of this thesis works towards path (b) in @liem2018psychology
 shown in: ![](images/Liem_2018_figure_2.png)
+
+## Present Work
+
+This thesis incorporates techniques and considerations from the social
+sciences to address the aforementioned shortcomings.
+
+showcases a design for a challenging ground-truthing project, in terms
+of the complexity of the phenomenon of interest, ambiguity in the media
+that selected and annotated. It incorporates design choices to address
+the aforementioned shortcomings into a singular framework, guided by
+best practices in the social sciences, which it then extends. It focuses
+unambiguously on the aspect most relevant to the
+
+Specifically:
+
+-   We attempt to mitigate representation biases in the content we
+    select for annotation by using a stratified sampling strategy.
+-   We attempt to mitigate measurement biases by treating the target
+    measurement as a latent variable, and the survey we used to gather
+    annotations as an instrument. We build on work that validated a
+    questionnaire for measuring constructs, and estimating its
+    reliability and structural validity when used for annotations.
+-   We account for the potential of multiple perspectives in our dataset
+    by recruiting participants from relevant subgroups in a single
+    target population.
+-   We report the details of the annotation collection process, and
+    share the disaggregated dataset of the annotations
+-   We further show how to estimate the number of annotators\
+
+We demonstrate the potential of this framework by grounding a complex
+phenomenon (a 10-dimensional construct, Personal Values) in ambiguous
+text (song lyrics). We further show an
+
+When sampling content to include in training/test datasets, samples for
+the training/test sets will ideally be drawn from the same distribution
+as the content in which they will eventually be deployed.
+*Representation bias* in content selected for training and/or evaluation
+datasets refers to the degree to which relevant distributions in data
+used to train and/or evaluate systems resembles the distribution in the
+environment to which it will be deployed [@hullman2022worst].
+
+Measurement bias in the annotations collected from humans may also bias
+
+Perspectivism
+
+Reporting
+
+We add: a priori rating number estimation
+
+And although imperfect as leaderboard scores can be gamed, and do not
+perfectly represent the deployment environment, the typical leaderboard
+approach has shown evidence that progress can be made towards a target.
+This thesis thus represents an attempt to define the target better.
 
 ## References

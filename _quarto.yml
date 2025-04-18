@@ -5,7 +5,7 @@ project:
 format:
   html:
     toc: true
-    number-sections: false
+    number-sections: true
     theme: cosmo  # or whichever theme you like
   docx:
     toc: true

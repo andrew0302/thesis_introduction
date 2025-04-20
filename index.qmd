@@ -17,9 +17,7 @@ AI systems run on data. Data are used to 'train' *models* - imperfect, simplifie
 
 Training data may be tabular data, but is often a form of media - text, audio, images, or video, whereas reference data often contains aggregated input from humans [@geiger2021garbage; @geiger2020garbage; @sav2023annotation; @muller2021designing]. Data sets designed for training, reference or both, are often re-used, likely due to the ease of access - often a mere download - compared to the effort and cost required to design, collect, and evaluate such data sets. Human input may be collected explicitly - where a phenomenon of interest is set as a target, and humans are given a task whereby their responses produce data relevant to the target. Common scenarios include human judges annotating, labeling, or rating a) individual pieces of content of the same form as the training data, or b) generated system outputs for the presence/absence, or degree of the phenomenon of interest[@muller2021designing]. Data may also be collected implicitly - where digital traces of human behavior, e.g. media consumption, form the target [@sav2023annotation]. 
 
-Qualities of both forms of data (training and evaluation) determine the quality of the system, whether used to train the system, to evaluate it, or both. Parameters are estimated from the training data, with the aim that observable patterns will be recognized in the data, and affect the behavior of the model used by the system. Thus, if the model accurately reflects the data, parameters will accurately reflect imperfections, inaccuracies, biases etc. in the data as well. Also, as models are evaluated by comparing their outputs to reference data, such that preferred models are those whose outputs most closely resemble the reference data [@birhane2022values], imperfections in the reference are reflected in the models preferred. 
-
-Thus, the best possible performance in the real world directly corresponds to the degree to which training and reference data represent the phenomenon of interest, in the environment to which it is to be deployed. Thus, evaluating a model in an AI system involves two measurement problems: 1) measuring the phenomenon of interest in the media selected for inclusion in the reference and/or training data, and 2) measuring the similarity of the output of a model to the reference [@welty2019metrology]. While the second has received extensive attention, the first has not. 
+Qualities of both forms of data (training and evaluation) determine the quality of the system, whether used to train the system, to evaluate it, or both. Parameters are estimated from the training data, with the aim that observable patterns will be recognized in the data, and affect the behavior of the model used by the system. Thus, if the model accurately reflects the data, parameters will accurately reflect imperfections, inaccuracies, biases etc. in the data as well. Also, as models are evaluated by comparing their outputs to reference data, such that preferred models are those whose outputs most closely resemble the reference data [@birhane2022values], imperfections in the reference are reflected in the models preferred. Thus, the best possible performance in the real world directly corresponds to the degree to which training and reference data represent the phenomenon of interest, in the environment to which it is to be deployed. Thus, evaluating a model in an AI system involves two measurement problems: 1) measuring the phenomenon of interest in the media selected for inclusion in the reference and/or training data, and 2) measuring the similarity of the output of a model to the reference [@welty2019metrology]. While the second has received extensive attention, the first has not. 
 
 Human input is never identical even when submitted carefully - in other words, people do not perfectly agree [@cabitza2023toward]. As most models are only compatible with a single reference point per piece of content, multiple inputs are often collected from different people with reference to items of content, and subsequently aggregated. This ignores the process that produced the reference data by assuming a singular 'ground truth' per piece of content and treating all disagreement as 'noise' rather than 'signal', leading to biased or inaccurate reference data [@aroyo2015truth; @cabitza2023toward]. Thus, relevant distributions in the data used as the reference and/or training must resemble those in the environment to which the system will be deployed [@hullman2022worst], but also account for the fact that human input is never identical [@aroyo2015truth; @cabitza2023toward].
 
@@ -51,11 +49,13 @@ Considering the ever-presence of human influence on the reference data, best pra
 
 Decisions such as the selection of items for training data [@hullman2022worst], and the collection of human responses for reference data [@beck2022improving], are part of a design of a process that results in data [@muller2021designing]. Commonly observed shortcomings of this process include: 1) measurement biases in the annotations collected [@jacobs2021measurement; @hullman2022worst; @beck2022improving], 2) a fallacious assumption of a single canonical 'ground-truth' [@aroyo2015truth; @cabitza2023toward], 3) representational biases in the content sampled for inclusion in training/evaluation datasets [@hullman2022worst], and 4) poor reporting of necessary information regarding the annotation-collection process [@hullman2022worst; @geiger2021garbage]. 
 
-An additional consideration that receives little attention is 5) the estimation of the number of annotations to gather, where fields that focus on gathering data from humans typically also have a strong emphasis on *a-priori* decisions, such as the pre-registration of calculated of target sample sizes estimated via statistical power analysis [@cohen1992statistical], to mitigate sources of bias that come from the researcher. These considerations are absent in computational fields which appear to favor differing rules of thumb: e.g. in a well-cited textbook, @PustejovskyStubbsNLannotation suggest to “have your corpus annotated by at least two people (more is preferable, but not always practical)”, whereas @artstein2008inter suggest that "measuring reliability with only two coders is seldom enough, except for small-scale studies".On the one hand, corpora tend to be very large, and resources are finite, making cost a primary factor in design decisions. On the other hand, rules of thumb lack clear substantiation in light of the both 1) the phenomenon being grounded and 2) the ambiguity of the media in which it is grounded. In other words, more variance is expected in annotation targets to the degree they are subjective or based on opinion [@beck2022improving], and more variance is expected in content to the degree to which it is ambiguous - i.e. can be interpreted in multiple ways - such as figurative language [@sandri2023don]. Further, some degree of variance will always be present when there are multiple annotations or ratings for a given piece of media independent of the target [@cabitza], based on the range of reasonable interpretations of that target in that media [@arroyo].
+An additional consideration that receives little attention is 5) the estimation of the number of annotations to gather, where fields that focus on gathering data from humans typically also have a strong emphasis on *a-priori* decisions, such as the pre-registration of calculated of target sample sizes estimated via statistical power analysis [@cohen1992statistical], to mitigate sources of bias that come from the researcher. These considerations are absent in computational fields which appear to favor differing rules of thumb: e.g. in a well-cited textbook, @PustejovskyStubbsNLannotation suggest to “have your corpus annotated by at least two people (more is preferable, but not always practical)”, whereas @artstein2008inter suggest that "measuring reliability with only two coders is seldom enough, except for small-scale studies".On the one hand, corpora tend to be very large, and resources are finite, making cost a primary factor in design decisions. On the other hand, rules of thumb lack clear substantiation in light of the both 1) the phenomenon being grounded and 2) the ambiguity of the media in which it is grounded. In other words, more variance is expected in annotation targets to the degree they are subjective or based on opinion [@beck2022improving], and more variance is expected in content to the degree to which it is ambiguous - i.e. can be interpreted in multiple ways - such as figurative language [@sandri2023don]. Further, some degree of variance will always be present when there are multiple annotations or ratings for a given piece of media independent of the target [@cabitza2023], based on the range of reasonable interpretations of that target in that media [@arroyo2015truth].
 
 ### Representational Bias
 
-When sampling content to include in training/test datasets, samples for the training/test sets will ideally be drawn from the same distribution as the content in which they will eventually be deployed. *Representation bias* in content selected for training and/or evaluation datasets refers to the degree to which relevant distributions in data used to evaluate and possibly train systems resembles the distribution in the environment to which it will be deployed [@hullman2022worst]. If data used for training under-represents parts of the input space of an algorithm, that then estimates parameters from that input space, the model resulting will have higher error rates for those under-represented parts of the input space when deployed. In other words, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process. 
+When sampling content to include in training/test datasets, samples for the training/test sets will ideally be drawn from the same distribution as the content in which they will eventually be deployed. *Representation bias* in content selected for training and/or evaluation datasets refers to the degree to which relevant distributions in data used as reference and/or training data resemble distributions in the environment to which a system is deployed [@hullman2022worst]. If data used for training under-represents parts of the input space of an algorithm that then estimates parameters from that input space, the model resulting will have higher error rates for those under-represented parts of the input space when deployed. If content is selected without appropriate design aimed at representing the population from which samples are drawn, the overall distribution will not represent the population it was drawn from. Thus, optimizing for predictive accuracy using very large datasets does not 'absolve' researchers from having to consider the data generating process, and this includes sampling pieces of content to be annotated.
+
+Approaches to representation problems can come from Sampling Theory, which frames the problem as one of selecting elements of a population, from which a sample must be drawn, and where the aim is that measurements of interest in the sample resemble measurements of interest in the population [@groves2009survey]. This framework is typically applied to selecting people for inclusion in survey studies, whereby their responses to questions lend themselves to inference about a target population. Although there is no 'one-size-fits-all' solution to sampling, this thesis makes use of *stratified random sampling* as a general strategy: namely, the identification of groups of elements within a population that may affect the measurements in question, and the random sampling of elements within the groups, with approximately equal observations. In principle, this allows for the representation of the groups in population, on the measurement of interest, with some margin of error [@groves2009survey].
 
 ### Measurement bias
 
@@ -67,21 +67,11 @@ However, disagreement is common. @cabitza2023toward show that this is the case w
 
 #### Modelling the data-generating process
 
-Social and computational sciences traditionally have different focci. Where the social sciences emphasize an interpretable meaning of x and y, and where design design is informed by theory, the computational sciences focus on the learning procedure itself. 
+Gathering useful data from people is non-trivial, as human judgments are imperfect. One illustration involves their own knowledge. @griffin2004perspectives review errors and biases in people's confidence in their judgements, based on answered questions from an almanac, and confidence in the correctness of the responses. They identify a number of patterns, e.g. over/under prediction whereby the confidence score is consistently higher/lower than accuracy, and review a number of reasons, e.g. confirmation bias whereby there is an increases tendency to favor interpretations that fit one's understanding. 
 
 ![](images/Liem_2018_figure_1.png) Fig. 1: @liem2018psychology
 
-annotations aim to measure a latent variable. @jacobs2021measurement there is a 'measurement error model' (taken from econ) that links the unobservable latent variable, and observable properties. in annotations this is via individual observations. although paper focuses on attempts at measuring constructs (risk of recidivism, teacher effectiveness, patient benefit) they also show that even 'representational measurements' like height, are essentially a latent variable
-
-@aroyo2015truth operationalize 'crowd truth' with an illustration where
-the 'gold standard' is the probability that a sentence contains an
-element, based on the probability that an annotator annotated that
-sentence with that element.
-
--   i.e. the label isn't represented as 'present' or 'not present', but
-    as a probablility
--   thus the 'crowd truth' attempts to capture the 'range of reasonable
-    interpretations'
+Social and computational sciences traditionally have different focci. Where the social sciences emphasize an interpretable meaning of x and y, and where research design is informed by theory, the computational sciences instead focus on the learning procedure itself (see Fig 1.). A key difference in the way measurements are treated, is that the social sciences treat data from people as observations of an unknowable latent variable called a *construct* - among the more well-known are Personality from the field of Psychology. Applicable to the gathering of annotations: @jacobs2021measurement suggest there is an 'measurement error model' (a term they borrow from the field of Economics), that links the unobservable latent variable, and properties that we can observe - in our case, the data produced when people label or annotate. Thus, the annotations we observe can not be the 'ground truth', and instead are imperfect indications that can be used to estimate the ground truth. For example: @aroyo2015truth operationalize their term 'crowd truth' as the 'gold standard' being the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element i.e. the label isn't represented as 'present' or 'not present', but as a probablility. Thus the 'crowd truth' attempts to capture the 'range of reasonable interpretations'. 
 
 @beck2022improving: we should expect more variance to the degree that
 tasks measure opinion show work on an intuitively perspective-based
@@ -92,41 +82,9 @@ ambiguous.
 
 
 
-
-
-
-
-
-
-#### Human judgments are imperfect
-
-@griffin2004perspectives review errors and biases in human
-judgements[^3]
-
-[^3]: @griffin2004perspectives note that much of this work was about
-    people guessing knowledge from an almanac, and then guessing how
-    accurate they were
-
-@griffin2004perspectives review errors and biases in human
-judgements[^3]
-
-[^3]: @griffin2004perspectives note that much of this work was about
-    people guessing knowledge from an almanac, and then guessing how
-    accurate they were
-
--   over/under prediction: confidence score is higher/lower than
-    accuracy
--   over/under extremity: confidence is more extreme at ends
-
-also reviews possible reasons:
-
--   optimistic overconfidence
--   confirmation bias
--   case-based judgment
--   ecological probability
--   error model (psychometric model)
-
 #### Treat annotation generating process as an instrument
+
+To measure constructs, the social sciences create instruments, often in the form of surveys to measure variables defined as latent, or indirectly observable, like the effectiveness of a teacher, or recidivism, the risk that someone will repeat a crime. As one may measure one's height with a ruler, one may acknowledge that no measurement is perfect, but estimate one's latent 'height' via multiple measurements @jacobs2021measurement. 
 
 @beck2022improving
 
@@ -137,6 +95,20 @@ also reviews possible reasons:
         perceptions
     -   Annotator Effects: backgrounds, opinions, experiences of
         respondents affect responses
+        
+        ### Issues with instruments
+
+@beck2022improving
+
+-   annotation collection requires design thinking
+    -   Task Structure: specific wording and response options, including
+        debates over the inclusion of "I don't Know" option
+    -   Order Effects: specific judgements are affected by previous
+        perceptions
+    -   Annotator Effects: backgrounds, opinions, experiences of
+        respondents affect responses
+
+\[another ref that describes the target as a latent variable\]
 
 @jacobs2021measurement
 
@@ -168,7 +140,7 @@ our measurements:
     measurement model to be assessed?
 
 
-
+ metrology, standard deviation of standard deviations etc. 
 
 ##### ML ignores perspectives of annotators
 
@@ -276,41 +248,7 @@ An investigation of 15 data science workers, @muller2021designing observed commo
 
 
 
-# Tools from Social Science can help
 
-
-
-### Issues with sampling
-
-Solutions to sampling problems can come from sampling theory:
-@groves2009survey
-
-considerations:
-
--   sampling frame: the elements in from populations that you have
-    access to
--   ineligible units: elements in the sampling frame that are not your
-    target
--   undercoverage: elements from target population that are not in the
-    frame
-
-solutions:
-
--   stratified sampling
-
-### Issues with instruments
-
-@beck2022improving
-
--   annotation collection requires design thinking
-    -   Task Structure: specific wording and response options, including
-        debates over the inclusion of "I don't Know" option
-    -   Order Effects: specific judgements are affected by previous
-        perceptions
-    -   Annotator Effects: backgrounds, opinions, experiences of
-        respondents affect responses
-
-\[another ref that describes the target as a latent variable\]
 
 
 

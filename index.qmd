@@ -57,58 +57,95 @@ When sampling content to include in training/test datasets, samples for the trai
 
 Approaches to representation problems can come from Sampling Theory, which frames the problem as one of selecting elements of a population, from which a sample must be drawn, and where the aim is that measurements of interest in the sample resemble measurements of interest in the population [@groves2009survey]. This framework is typically applied to selecting people for inclusion in survey studies, whereby their responses to questions lend themselves to inference about a target population. Although there is no 'one-size-fits-all' solution to sampling, this thesis makes use of *stratified random sampling* as a general strategy: namely, the identification of groups of elements within a population that may affect the measurements in question, and the random sampling of elements within the groups, with approximately equal observations. In principle, this allows for the representation of the groups in population, on the measurement of interest, with some margin of error [@groves2009survey].
 
-### Measurement bias
-
-Recent trends — especially in deep learning — prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows that Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty are the primary values in ML work @birhane2022values. Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, assuming it cannot be learned, and aims instead at predictors that fall within accepted estimated error bounds [@hullman2022worst]. This is problematic as this kind of optimization doesn't resemble real world deployment.
+### The perspectives of annotators
 
 The field of machine learning tends to treat all annotation variance as noise rather than signal. Often multiple ratings per piece of content are collected, aggregated, and only then shared, forming a singular 'ground truth' for the aspect of the content being labelled or rated, which then may see years of re-use. The quality of annotations is assessed using inter-annotator agreement, where more agreement is typically thought to indicate higher quality data @aroyo2015truth. Thus, it is assumed that there is a singular canonical truth for each aspect / content pair, comprised of aggregated human responses, which forms a target to which we align our automated systems. 
 
 However, disagreement is common. @cabitza2023toward show that this is the case whether the task is typically thought of as subjective, e.g. NLP tasks [@aroyo2015truth], but also extend to tasks thought to be far less so, e.g. medical cases [@cabitza2019elephant]. In both scenarios, disagreement, observable as variance in the human input is often removed via 1) adjusting annotator training and instruction so as to reduce variance in the human inputs at the time of collection, 2) adjusting annotations via discussion post-collection, thus allowing annotators to re-think their responses, or 3) completely post-hoc at the time of modeling, via methods like majority voting, without input from the annotators. Clearly, the data generated from a process that may result from e.g. thorough training for crowd-sourced workers, may vary from one in which annotators meet regularly to resolve disagreements. 
 
-#### Modelling the data-generating process
+Further, some portion of variance in observed disagreement is signal rather than noise. People's backgrounds may determine how they interpret content, such as hate speech. @beck2022improving. suggest we should expect more variance to the degree that tasks measure opinion. Thus, although we expect hate speech exists, people's perceptions of what constitutes hate speech may vary. Should perceptions vary by identifiable characteristics, e.g. gender identity, ethnicity etc., variance in perceptions may help unearth bias. Tasks may further vary based on the ambiguity of the stimuli themselves, both in terms of the mode (audio vs. image vs. video vs. text), specific medium (Tweet vs. podcast transcript), or even the specific piece of content being annotated @aroyo2015truth.
 
-Gathering useful data from people is non-trivial, as human judgments are imperfect. One illustration involves their own knowledge. @griffin2004perspectives review errors and biases in people's confidence in their judgements, based on answered questions from an almanac, and confidence in the correctness of the responses. They identify a number of patterns, e.g. over/under prediction whereby the confidence score is consistently higher/lower than accuracy, and review a number of reasons, e.g. confirmation bias whereby there is an increases tendency to favor interpretations that fit one's understanding. 
+@cabitza2023toward: whether the target of the annotation is a subjective phenomenon or not, disagreement is always irreducible. Yet ML typically assumes there is a single 'ground truth', and its best indicator is inter-annotator agreement. But taking the perspectives of the annotators into account, both in the data annotation but also the modelling phase of ML projects has recently been shown to benefit ML modelling in a number of contexts.
+
+Weak perspectivist approach: taking perspectives into account while designing and collecting annotations, but ultimately reducing annotations to a single label or rating. Strong perspectivist approach: taking perspectives into account for ground truthing and modelling phases.
+
+benefits of this approach:
+
+-   is congruent with the reality of collecting annotations
+-   includes the signal in the variance of labels or ratings
+-   avoids majority group perspective appearing to be 'objective'
+-   allows for the modelling of human errors and variances
+-   allows for uncertain, fuzzy, or soft model development
+-   more complete report of the data generating process, as it also reports uncertainty
+
+downsides:
+
+-   multiple raters, and therefore costs/time/rater availability are issues
+-   need for perspectivist ML approaches
+-   validation becomes more challenging
+
+recommendations:
+-   complete labeling schemes, including 'i don't know', 'none of these' etc. categories, and the ability to express issues with label set
+
+-   enough raters
+-   heterogenous raters
+-   adequate reporting:
+    -   number of raters,
+    -   rater expertise
+    -   incentive
+    -   instructions
+    -   length of time for labelling
+    -   inter rater agreement
+    -   aggregation method
+    -   confidence
+
+Beyond errors in judgment are questions about the target for the annotations. For at least some phenomena, the assumption that there is a single ground-truth to approximate with annotations doesn't hold @aroyo2015truth. 
+
+@aroyo2015truth
+
+7 'myths' of human annotation:
+
+-   there is one truth
+-   disagreement is bad
+-   detailed guidelines help
+-   experts are better
+-   one annotator is enough
+-   all items are created equal
+-   once done, forever valid
+
+For myths 1 and 2:
+
+-   list examples from NLP where the disagreement from annotators is
+    sensible
+-   they argue that the assumptions of a single ground truth, and that
+    disagreement is indicative of poor annotations are both false.
+
+### Measurement bias
+
+Recent trends in Machine Learning (ML)— especially in deep learning — prioritize empirical performance over theoretical assumptions about the data generating process. A systematic analysis of highly cited ML works shows what is valued most: Performance, Generalization, Quantitative evidence, Efficiency, Building on past work, and Novelty @birhane2022values. Unlike the social sciences (e.g. psychology), ML work ignores attempts to model the process that gives rise to the data, and aims instead at predictive models whose outputs fall within some accepted estimated error bounds [@hullman2022worst]. This is problematic as this kind of optimization doesn't resemble real world deployment.
+
+
+#### Modelling the data-generating process
 
 ![](images/Liem_2018_figure_1.png) Fig. 1: @liem2018psychology
 
-Social and computational sciences traditionally have different focci. Where the social sciences emphasize an interpretable meaning of x and y, and where research design is informed by theory, the computational sciences instead focus on the learning procedure itself (see Fig 1.). A key difference in the way measurements are treated, is that the social sciences treat data from people as observations of an unknowable latent variable called a *construct* - among the more well-known are Personality from the field of Psychology. Applicable to the gathering of annotations: @jacobs2021measurement suggest there is an 'measurement error model' (a term they borrow from the field of Economics), that links the unobservable latent variable, and properties that we can observe - in our case, the data produced when people label or annotate. Thus, the annotations we observe can not be the 'ground truth', and instead are imperfect indications that can be used to estimate the ground truth. For example: @aroyo2015truth operationalize their term 'crowd truth' as the 'gold standard' being the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element i.e. the label isn't represented as 'present' or 'not present', but as a probablility. Thus the 'crowd truth' attempts to capture the 'range of reasonable interpretations'. 
+The social sciences treat data from people as imperfect observations of a latent variable called a *construct* - among the more well-known are Personality from the field of Psychology. Social and computational sciences traditionally have different focci: where the social sciences emphasize an interpretable meaning of x and y, where x and y are not always directly observable, the computational sciences instead focus on the statistical procedure that correlates x in terms of y (see Fig 1.). Applying the latent variable approach to the gathering of annotations, @jacobs2021measurement suggest there is a 'measurement error model' (a term they borrow from the field of Economics), that links the unobservable latent variable, and properties that we can observe - in our case, the data produced when people label or annotate. Thus, the annotations we observe can not be the 'ground truth' as such a thing is unknowable, but instead are imperfect indications that can be used to estimate the ground truth. 
 
-@beck2022improving: we should expect more variance to the degree that
-tasks measure opinion show work on an intuitively perspective-based
-use-case: hate speech
+More concretely, @aroyo2015truth operationalize their term 'crowd truth' as the 'gold standard' being the probability that a sentence contains an element, based on the probability that an annotator annotated that sentence with that element i.e. the label isn't represented as 'present' or 'not present', but as a probability that an annotator labelled it as such. The probability that they may label it as such may in part explained by certain characteristics of theirs, such as their backgrounds, personal experiences etc. [@beck2022improving]. 
 
-@aroyo2015truth for myth 6: disagreement indicates that the media being rated is
-ambiguous.
 
+<!--
+Gathering useful data from people is non-trivial, as human judgments are imperfect. One illustration involves their own knowledge. @griffin2004perspectives review errors and biases in people's confidence in their judgements, based on answered questions from an almanac, and confidence in the correctness of the responses. They identify a number of patterns, e.g. over/under prediction whereby the confidence score is consistently higher/lower than accuracy, and review a number of reasons, e.g. confirmation bias whereby there is an increases tendency to favor interpretations that fit one's understanding. 
+-->
 
 
 #### Treat annotation generating process as an instrument
 
 To measure constructs, the social sciences create instruments, often in the form of surveys to measure variables defined as latent, or indirectly observable, like the effectiveness of a teacher, or recidivism, the risk that someone will repeat a crime. As one may measure one's height with a ruler, one may acknowledge that no measurement is perfect, but estimate one's latent 'height' via multiple measurements @jacobs2021measurement. 
 
-@beck2022improving
+Similar to the ruler being an instrument to measure height, survey science treats the survey - the standardized process of collecting data from human input - like a measurement instrument. It thus seeks to minimize the influence of sources of 'noise': *Task Structure* involves refining specific wording and response options, including deciding on the inclusion of "I Don't Know" or otherwise neutral response options, *Order Effects* involves strategies to randomly present content, as judgements of a specific piece of content are affected by perceptions of immediately previous pieces of content, and *Annotator Effects* which involves strategies to appropriately account for differences in perception based on the backgrounds, experiences and opinions of the annotators [@beck2022improving]. 
 
--   annotation collection requires design thinking
-    -   Task Structure: specific wording and response options, including
-        debates over the inclusion of "I don't Know" option
-    -   Order Effects: specific judgements are affected by previous
-        perceptions
-    -   Annotator Effects: backgrounds, opinions, experiences of
-        respondents affect responses
-        
-        ### Issues with instruments
 
-@beck2022improving
-
--   annotation collection requires design thinking
-    -   Task Structure: specific wording and response options, including
-        debates over the inclusion of "I don't Know" option
-    -   Order Effects: specific judgements are affected by previous
-        perceptions
-    -   Annotator Effects: backgrounds, opinions, experiences of
-        respondents affect responses
-
-\[another ref that describes the target as a latent variable\]
 
 @jacobs2021measurement
 
@@ -142,99 +179,8 @@ our measurements:
 
  metrology, standard deviation of standard deviations etc. 
 
-##### ML ignores perspectives of annotators
 
-@cabitza2023toward: whether the target of the annotation is a subjective
-phenomenon or not, disagreement is always irreducible. Yet ML typically
-assumes there is a single 'ground truth', and its best indicator is
-inter-annotator agreement. But taking the perspectives of the annotators
-into account, both in the data annotation but also the modelling phase
-of ML projects has recently been shown to benefit ML modelling in a
-number of contexts.
-
-weak perspectivist approach: taking perspectives into account while
-designing and collecting annotations, but ultimately reducing
-annotations to a single label or rating.
-
-strong perspectivist approach: taking perspectives into account for
-ground truthing and modelling phases.
-
-benefits of this approach:
-
--   is congruent with the reality of collecting annotations
-
--   includes the signal in the variance of labels or ratings
-
--   avoids majority group perspective appearing to be 'objective'
-
--   allows for the modelling of human errors and variances
-
--   allows for uncertain, fuzzy, or soft model development
-
--   more complete report of the data generating process, as it also
-    reports uncertainty
-
-downsides:
-
--   multiple raters, and therefore costs/time/rater availability are
-    issues
-
--   need for perspectivist ML approaches
-
--   validation becomes more challenging
-
-recommendations:
-
--   complete labeling schemes, including 'i don't know', 'none of these'
-    etc. categories, and the ability to express issues with label set
-
--   enough raters
-
--   heterogenous raters
-
--   adequate reporting:
-
-    -   number of raters,
-
-    -   rater expertise
-
-    -   incentive
-
-    -   instructions
-
-    -   length of time for labelling
-
-    -   inter rater agreement
-
-    -   aggregation method
-
-    -   confidence
-
-Beyond errors in judgment are questions about the target for the
-annotations. For at least some phenomena, the assumption that there is a
-single ground-truth to approximate with annotations doesn't hold @aroyo2015truth. 
-
-@aroyo2015truth
-
-7 'myths' of human annotation:
-
--   there is one truth
--   disagreement is bad
--   detailed guidelines help
--   experts are better
--   one annotator is enough
--   all items are created equal
--   once done, forever valid
-
-For myths 1 and 2:
-
--   list examples from NLP where the disagreement from annotators is
-    sensible
--   they argue that the assumptions of a single ground truth, and that
-    disagreement is indicative of poor annotations are both false.
-
-
-##### Inadequate reporting
+### Inadequate reporting
 
 @geiger2021garbage ML science studies inadequately report 'ground truth'
 
@@ -244,12 +190,6 @@ resulting model represents
 \[perhaps cat image parable here?\]
 
 An investigation of 15 data science workers, @muller2021designing observed common phases, which include determining the annotation scheme - all possible labels that can be attributed to digital representations of objects along with any relevant guidelines, the actual process of collecting labels, and the process by which the annotations are then aggregated into a single label. They note the difficulty of this work: issues in the annotation schemes are often discovered as annotation projects progress, requiring varying degrees of improvised adjustment. 
-
-
-
-
-
-
 
 
 # Present Work
